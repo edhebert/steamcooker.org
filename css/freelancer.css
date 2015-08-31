@@ -108,6 +108,19 @@ header .intro-text .skills {
     font-weight: 300;
 }
 
+
+.navbar-brand {
+    padding: 15px;
+}
+
+.navbar-fixed-top .navbar-brand img {
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    width: 75px;
+}
+
+
 @media(min-width:768px) {
     header .container {
         padding-top: 200px;
@@ -132,10 +145,18 @@ header .intro-text .skills {
     }
 
     .navbar-fixed-top .navbar-brand {
+        padding: 0 15px;
         font-size: 2em;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
+    }
+
+    .navbar-fixed-top .navbar-brand img {
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+        width: 150px;
     }
 
     .navbar-fixed-top.navbar-shrink {
@@ -143,7 +164,12 @@ header .intro-text .skills {
     }
 
     .navbar-fixed-top.navbar-shrink .navbar-brand {
+        padding: 8px 15px;
         font-size: 1.5em;
+    }
+
+    .navbar-fixed-top.navbar-shrink .navbar-brand img {
+        width: 100px;
     }
 }
 
