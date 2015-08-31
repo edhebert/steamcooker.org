@@ -241,9 +241,10 @@ section.success a.active {
     color: #fff;
 }
 
-#module .module-item .module-link .caption .caption-content i {
+
+/*#module .module-item .module-link .caption .caption-content i {
     margin-top: -12px;
-}
+}*/
 
 #module .module-item .module-link .caption .caption-content h3,
 #module .module-item .module-link .caption .caption-content h4 {
