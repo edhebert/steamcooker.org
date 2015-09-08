@@ -8,6 +8,9 @@
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
+
+ console.log("I'm running!");
+ 
 var cbpAnimatedHeader = (function() {
 
 	var docElem = document.documentElement,
