@@ -46,6 +46,9 @@ function setup() {
 }
 
 function draw() {
+    // continuous game loop that runs indefinitely
+
+    // check if assigned to be random (-1)
     if (deg != -1) {
       deg = $("#angle").val();
       $("#degNum").text(deg);
@@ -53,10 +56,14 @@ function draw() {
       newTree();     
     }
 
+    // check if assigned to be random (-1)
     if (numBranches != -1) {
       numBranches = $("#branches").val();
       $("#branchNum").text(numBranches);
     }
+
+    branchSize = $("#branchSize").val();
+    $("#branchSzNum").text(branchSize);
 }
 
 // initialize the Tree
@@ -103,7 +110,7 @@ function branch(h) {
 
   // All recursive functions must have an exit condition!!!!
   // Here, ours is when the length of the branch is 5 pixels or less
-  if (h > 20) {
+  if (h > branchSize) {
     // A random number of numBranches
     // var n = Math.floor(random(2, 4));
     // var n = 2;
