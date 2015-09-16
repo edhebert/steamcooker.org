@@ -29,20 +29,23 @@ function setup() {
 
   createCanvas(640, 360);
 
-    // get input values from sliders
+  // hue, saturation, and brightness mode
+  colorMode(HSB, 255);
 
-    // angle in degrees
-    deg = $("#angle").val();
-    $("#degNum").text(deg);
+  // get input values from sliders
 
-    // convert degrees to radians
-    rad = radians(deg);
+  // angle in degrees
+  deg = $("#angle").val();
+  $("#degNum").text(deg);
 
-    // number of numBranches to draw
-    numBranches = $("#branches").val();
-    $("#branchNum").text(numBranches);
+  // convert degrees to radians
+  rad = radians(deg);
 
-    newTree();
+  // number of numBranches to draw
+  numBranches = $("#branches").val();
+  $("#branchNum").text(numBranches);
+
+  newTree();
 }
 
 function draw() {
@@ -64,16 +67,19 @@ function draw() {
 
     branchSize = $("#branchSize").val();
     $("#branchSzNum").text(branchSize);
+
+    color = $("#color").val();
+    $("#colorVal").text(color);
 }
 
 // initialize the Tree
 
 function newTree() {
-  // white background
-  background(255);
+  // white background in HSB
+  background(0, 0, 255);
 
-  // the tree will be brown (unless randomized)
-  stroke(91, 74, 32);
+  // tree color assigned by slider (unless randomized)
+  stroke(color, 255, 128);
   push();
 
   // Start the tree from the bottom of the screen
