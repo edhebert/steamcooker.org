@@ -13,13 +13,28 @@ Code inspired by "Stochastic Fractals" by Daniel Shiffman in his book, _Nature o
 
 
 $(document).ready(function(){
+  
+  $('#isRandom').change(function(){
+    // if it's checked, disable slider inputs
+    if ($(this).is(":checked")) {
+      // assign global variable to randomize
+      isRandom = true; 
+      $( "input[type='range']" ).each(function(){
+        $(this).prop('disabled', true);
+      });
+      noLoop();
 
-  // $('#angle').on('change', function(){
-  //   deg = $("#angle").val();
-  //   $("#degNum").text(deg);
-  //   rad = radians(deg);
-  //   newTree();
-  // });
+    } else {
+
+      isRandom = false;
+
+      // enable all inputs and restore the animation loop
+      $( "input[type='range']" ).each(function(){
+        $(this).prop('disabled', false);
+      });
+      loop();
+    }
+  });
 
 });
 
@@ -32,7 +47,8 @@ function setup() {
   // hue, saturation, and brightness mode
   colorMode(HSB, 255);
 
-  // get input values from sliders
+  // default logic to nonRandom
+  isRandom = false; 
 
   // angle in degrees
   deg = $("#angle").val();
@@ -45,19 +61,20 @@ function setup() {
   numBranches = $("#branches").val();
   $("#branchNum").text(numBranches);
 
-  newTree();
 }
 
 function draw() {
     // continuous game loop that runs indefinitely
 
-    // check if assigned to be random (-1)
-    if (deg != -1) {
+    // check if assigned to be random
+    if (!document.getElementById('isRandom').checked) {
       deg = $("#angle").val();
       $("#degNum").text(deg);
-      rad = radians(deg);
-      newTree();     
+      rad = radians(deg); 
     }
+
+    // begin a new tree
+    newTree();  
 
     // check if assigned to be random (-1)
     if (numBranches != -1) {
@@ -70,6 +87,9 @@ function draw() {
 
     color = $("#color").val();
     $("#colorVal").text(color);
+
+    trunk = $("#trunk").val();
+    $("#trunkNum").text(trunk);
 }
 
 // initialize the Tree
@@ -85,6 +105,13 @@ function newTree() {
   // Start the tree from the bottom of the screen
   translate(width/2, height);
 
+  // if random, let 'nature' decide the tree parameters!
+  if(isRandom) {
+    trunk = Math.floor(random(5, 30));
+    branchSize = 2;
+    stroke(Math.floor(random(0, 255)), 255, 128);
+  }
+
   // Start the recursive branching!
   branch(120);
   pop();
@@ -95,17 +122,13 @@ function newTree() {
 function branch(h) {
 
   // thickness of the branch is mapped to its length
-  var sw = map(h, 2, 120, 1, 20);
+  var sw = map(h, 2, 120, 1, trunk);
 
   // stroke the line with the mapped stroke weight
   strokeWeight(sw);
 
-  // pick a random color for a branch each time its drawn
-  // var r = random(0,255), g = random(0,255), b = random(0,255);
 
-  // stroke(r,g,b);
-
-  // Draw the actual branch
+  // Draw the branch
   line(0, 0, 0, -h);
  
   // Move along to end of branch
@@ -117,25 +140,11 @@ function branch(h) {
   // All recursive functions must have an exit condition!!!!
   // Here, ours is when the length of the branch is 5 pixels or less
   if (h > branchSize) {
-    // A random number of numBranches
-    // var n = Math.floor(random(2, 4));
-    // var n = 2;
 
-    // for (var i = 0; i < n; i++) {
-
-      // Picking a random angle
-      // var theta = random(-PI/3, PI/3);
-
-      // push();      // Save the current state of transformation (i.e. where are we now)
-      // rotate(-rad);     // Rotate by the angle input
-      // branch(h);         // Ok, now call myself to branch again
-      // // console.log(angle);
-      // pop();       // Whenever we get back here, we "pop" in order to restore the previous matrix state
-
-      // push();      // Save the current state of transformation (i.e. where are we now)
-      // rotate(rad);     // Rotate by the angle input
-      // branch(h);         // Ok, now call myself to branch again
-      // pop();       // Whenever we get back here, we "pop" in order to restore the previous matrix state
+      // if random is selected, let nature decide
+      if (isRandom) {
+        numBranches = Math.floor(random(2, 4));
+      }
 
       // loop for the number of numBranches
       for (var i = 0; i < numBranches; i++) {
@@ -144,10 +153,19 @@ function branch(h) {
         // this formula allows each branch to space equally
         var branchAngle = 2 * deg / (numBranches - 1);
         
-        push();      // Save the current state of transformation (i.e. where are we now)
-          rotate(radians(-deg + (branchAngle * i)));     // Rotate by the angle input
-          branch(h);         // Ok, now call myself to branch again
-        pop();       // Whenever we get back here, we "pop" in order to restore the previous matrix state
+        // save current matrix state
+        push();      
+          if (isRandom) {
+            // rotate each branch arbitrarily
+            rotate(random(-PI/3, PI/3));           
+          } else {
+            // Rotate by the angle input
+            rotate(radians(-deg + (branchAngle * i)));     
+          }
+          // call 'branch' recursively
+          branch(h);
+        // restore previous matrix state           
+        pop();       
 
       }
 
