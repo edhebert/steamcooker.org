@@ -1,0 +1,19 @@
+@media (min-width: 768px) {
+    #module .container {
+        padding-top: 75px;
+        padding-bottom: 0;
+    }   
+}
+
+#module {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+canvas {
+    vertical-align: bottom;
+}
+
+.checkbox {
+    margin-top: 40px;
+}

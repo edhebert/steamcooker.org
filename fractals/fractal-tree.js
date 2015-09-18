@@ -11,30 +11,61 @@ Code inspired by "Stochastic Fractals" by Daniel Shiffman in his book, _Nature o
 
 */
 
-
 $(document).ready(function(){
-  
-  $('#isRandom').change(function(){
-    // if it's checked, disable slider inputs
-    if ($(this).is(":checked")) {
-      // assign global variable to randomize
-      isRandom = true; 
-      $( "input[type='range']" ).each(function(){
-        $(this).prop('disabled', true);
-      });
-      noLoop();
 
-    } else {
+  // convert "let nature decide" checkbox to a switch
+  $("#isRandom").bootstrapSwitch({
+    'labelText' : 'Let nature decide?',
+    'offText' : 'NO',
+    'onText' : 'YES',
+    'onColor' : 'warning',
+    'onSwitchChange' : function(){
+        // if it's checked, disable slider inputs
+        if ($(this).is(":checked")) {
+          // assign global variable to randomize
+          isRandom = true; 
+          $( "input[type='range']" ).each(function(){
+            $(this).prop('disabled', true);
+            $('form').css('opacity','0.2');
+          });
+          noLoop();
 
-      isRandom = false;
+        } else {
 
-      // enable all inputs and restore the animation loop
-      $( "input[type='range']" ).each(function(){
-        $(this).prop('disabled', false);
-      });
-      loop();
-    }
+          isRandom = false;
+
+          // enable all inputs and restore the animation loop
+          $( "input[type='range']" ).each(function(){
+            $(this).prop('disabled', false);
+            $('form').css('opacity','1.0');
+          });
+          loop();
+        }
+    },
+    'labelWidth' : '150'
   });
+  
+  // $('#isRandom').change(function(){
+  //   // if it's checked, disable slider inputs
+  //   if ($(this).is(":checked")) {
+  //     // assign global variable to randomize
+  //     isRandom = true; 
+  //     $( "input[type='range']" ).each(function(){
+  //       $(this).prop('disabled', true);
+  //     });
+  //     noLoop();
+
+  //   } else {
+
+  //     isRandom = false;
+
+  //     // enable all inputs and restore the animation loop
+  //     $( "input[type='range']" ).each(function(){
+  //       $(this).prop('disabled', false);
+  //     });
+  //     loop();
+  //   }
+  // });
 
 });
 
@@ -42,7 +73,9 @@ $(document).ready(function(){
 // define canvas size and all global variables
 function setup() {
 
-  createCanvas(640, 360);
+  var cnv = createCanvas(800, 500);
+  // target a container div to hold the canvas
+  cnv.parent("canvas");
 
   // hue, saturation, and brightness mode
   colorMode(HSB, 255);
@@ -99,7 +132,7 @@ function newTree() {
   background(0, 0, 255);
 
   // tree color assigned by slider (unless randomized)
-  stroke(color, 255, 128);
+  stroke(color, 255, 185);
   push();
 
   // Start the tree from the bottom of the screen
@@ -113,7 +146,7 @@ function newTree() {
   }
 
   // Start the recursive branching!
-  branch(120);
+  branch(170);
   pop();
 }
 

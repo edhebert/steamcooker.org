@@ -19,10 +19,12 @@ gulp.task('less', function() {
         .pipe(less())
         .pipe(uncss({
             html: [
-                '*.html'
+                '*.html',
+                'fractals/*.html'
             ],
             ignore: [
-                /^\.navbar/
+                /^\.navbar/,
+                /^\.col-/
             ]
         }))
         .pipe(minifyCSS())
@@ -37,6 +39,7 @@ gulp.task('scripts', function() {
               'js/jquery.js',
               'js/bootstrap.min.js',
               'js/jquery.easing.min.js',
+              'js/bootstrap-switch.min.js',
               'js/classie.js',
               'js/cbpAnimatedHeader.js',
               'js/freelancer.js',
