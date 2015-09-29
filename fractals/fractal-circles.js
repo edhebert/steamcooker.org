@@ -60,4 +60,5 @@ var circle = function(sketch) {
     }
 }
 
+// instantiate the sketch
 var mySketch = new p5(circle);

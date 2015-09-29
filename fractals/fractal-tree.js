@@ -44,29 +44,6 @@ $(document).ready(function(){
     },
     'labelWidth' : '150'
   });
-  
-  // $('#isRandom').change(function(){
-  //   // if it's checked, disable slider inputs
-  //   if ($(this).is(":checked")) {
-  //     // assign global variable to randomize
-  //     isRandom = true; 
-  //     $( "input[type='range']" ).each(function(){
-  //       $(this).prop('disabled', true);
-  //     });
-  //     noLoop();
-
-  //   } else {
-
-  //     isRandom = false;
-
-  //     // enable all inputs and restore the animation loop
-  //     $( "input[type='range']" ).each(function(){
-  //       $(this).prop('disabled', false);
-  //     });
-  //     loop();
-  //   }
-  // });
-
 });
 
 
