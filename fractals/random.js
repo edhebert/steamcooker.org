@@ -79,11 +79,14 @@ function branch(h) {
 
     for (var i = 0; i < n; i++) {
 
+      console.log(n);
+
       // Picking a random angle
       var theta = random(-PI/3, PI/3);
 
       push();      // Save the current state of transformation (i.e. where are we now)
       rotate(theta);     // Rotate by theta
+      console.log(theta);
       branch(h);         // Ok, now call myself to branch again
       pop();       // Whenever we get back here, we "pop" in order to restore the previous matrix state
     }
