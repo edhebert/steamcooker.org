@@ -17,6 +17,7 @@
 <!--     <link href="../css/bootstrap.min.css" rel="stylesheet">  -->  
     <link href="../css/bootstrap-switch.min.css" rel="stylesheet"> 
     <link href="../css/module.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="main.css"> -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -24,6 +25,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+  <script src="../js/vendor/modernizr.min.js"></script>
 </head>
 
 <body id="page-top" class="index">
@@ -75,7 +77,32 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-3">
+
+                <div class="col-sm-9 col-sm-push-3 text-center">
+                        <h1>The Movie</h1>
+                        <div id="main">
+                            <div id="progressBar">
+                                <div id="gutter"></div>
+                                <div id="progress"></div>
+                            </div>
+
+                            <div id="pause">
+                                <i id="pauseButton" class="fa fa-pause"></i>
+                            </div>
+
+                            <div id="welcome"> 
+                            <button id="begin" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Click to Begin</button>
+                            </div>
+
+                            <div id="videoClip"></div>
+                            <div id="sketchCanvas"></div>
+                            <div id="sketchOverlay"></div>
+                            <canvas id="videoCanvas" width="960" height="720"></canvas>
+                        </div>                  
+
+                </div>
+
+                <div class="col-sm-3 col-sm-pull-9">
                     <form>
                         <div class="form-group">
                             <label for="angle">Angle: <span id="degNum"></span>&deg;</label><br>
@@ -102,7 +129,6 @@
                         <input type="checkbox" name="isRamdom" id="isRandom">                           
                     </div>
                 </div>
-                <div class="col-sm-8 col-sm-offset-1 text-center" id="canvas"></div>
             </div>
         </div>
     </section>
@@ -267,8 +293,41 @@
     <!-- P5JS dependencies-->
     <script type="text/javascript" src="../js/p5.min.js"></script>
     <script type="text/javascript" src="../js/p5.dom.js"></script>
-<!--     // <script src="../js/bootstrap-switch.min.js"></script> -->
+
+
+    <script src="../js/vendor/popcorn.min.js"></script>
+
+    <script src="../js/vendor/seriously.js"></script>
+    <script src="../js/vendor/effects/seriously.chroma.js"></script>
+
+    <script src="script.js"></script>
+    <script src="main.js"></script>
+
+    <!-- lesson scripts -->
+    <script type="text/javascript" src="fractal-snowflake.js"></script>
     <script type="text/javascript" src="fractal-tree.js"></script>
+
+    <script>
+
+        $(document).ready( function () {
+
+        if (Seriously.incompatible()) {
+          $("#errorWebGL").show();
+          $("#errorFeature").hide();
+          $("#error").fadeIn();
+          $("#main").hide();
+        } else if (!Modernizr.webaudio || !Modernizr.csstransforms) {
+          $("#errorWebGL").hide();
+          $("#errorFeature").show();
+          $("#error").fadeIn();
+          $("#main").hide();
+        } else {
+          main.init();
+        }
+
+        });
+
+    </script>
 
 </body>
 

@@ -25,9 +25,7 @@ var tree = function(sketch) {
     sketch.setup = function() {
 
       // create a new html5 canvas
-      sketch.mainCanvas = sketch.createCanvas(800, 500);
-      //position tree relative to the video
-      sketch.mainCanvas.position(-300,0);
+      sketch.createCanvas(800, 500);
 
       // hue, saturation, and brightness mode
       sketch.colorMode(sketch.HSB, 255);
@@ -192,5 +190,5 @@ var tree = function(sketch) {
 }
 
 // instantiate the sketch and append it to the DOM within id "canvas"
-// var mySketch = new p5(tree, "canvas");
+var mySketch = new p5(tree, "canvas");
 

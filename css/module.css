@@ -17,3 +17,100 @@ canvas {
 .checkbox {
     margin-top: 40px;
 }
+
+
+/* UI */
+
+#pause {
+  position:absolute;
+  display: none;
+  right: 12px;
+  bottom: 12px;
+  z-index: 1000;
+  font-size: 32px;
+  cursor: pointer;
+  vertical-align:bottom;
+  color: #ccc;
+}
+
+#pause:hover {
+  color: #ED225D;
+}
+
+
+/* Video area */
+
+#main {
+/*    position: absolute;
+    overflow:hidden;
+    top: 0;
+    left: 0;*/
+/*    top: 50%;
+    left: 50%;*/
+/*    margin-left: -640px;
+    margin-top: -400px;*/
+    width: 800px;
+    height: 600px;
+    background: white;
+}
+
+#progressBar {
+    position: absolute;
+    height: 8px;
+    bottom: 0;
+    z-index: 1000;
+}
+
+#progress {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 8px;
+    background:#ED225D;
+}
+
+#gutter {
+    position:absolute;
+    top: 0;
+    left: 0;
+    height: 8px;
+    width: 100%;
+    background:#ccc;
+}
+/**
+ * Sketch
+ */
+
+#sketchCanvas, #sketchOverlay {
+    position: absolute;
+    width: 100%;
+    z-index:100;
+}
+
+#sketchCanvas.foreground, #sketchOverlay {
+    z-index: 600;
+}
+
+
+/**
+ * Video
+ */
+
+#videoClip {
+    position: absolute;
+    display: none;
+    pointer-events: none;
+}
+
+#videoCanvas {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /*  margin-left: -300px; */
+    width: 960px;
+    height: 720px;
+    pointer-events: none;
+    display:none;
+    z-index: 200;
+}

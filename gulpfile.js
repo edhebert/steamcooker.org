@@ -24,7 +24,8 @@ gulp.task('less', function() {
             ],
             ignore: [
                 /^\.navbar/,
-                /^\.col-/
+                /^\.col-/,
+                /^\.fa-play/
             ]
         }))
         .pipe(minifyCSS())
