@@ -19,12 +19,19 @@ https://github.com/jain7th/Processing-Tree-and-Snowflake-Generator
 var snowflake = function(sketch) {
 
     sketch.setup = function() {
-        sketch.createCanvas(160, 160);
+        sketch.mainCanvas = sketch.createCanvas(160, 160);
 
-        // center the drawing
+        // center the snowflake drawing within the canvas
         sketch.rectMode(sketch.CENTER);
         // round off the ends of strokes
         sketch.strokeCap(sketch.ROUND);
+
+    sketch.mainCanvas.mousePressed(function(){
+        //draw another random snowflake each time the mouse is pressed
+        sketch.drawSnowflake(sketch.width/2, sketch.height/2, sketch.random(20,80));
+    }); 
+
+
     }
 
     sketch.draw = function() {
@@ -33,11 +40,6 @@ var snowflake = function(sketch) {
 
         // draw only one snowflake - don't keep looping
         sketch.noLoop();
-    }
-
-    sketch.mousePressed = function() {
-        //draw another random snowflake each time the mouse is pressed
-        sketch.drawSnowflake(sketch.width/2, sketch.height/2, sketch.random(20,80));
     }
 
     sketch.drawSnowflake = function(x, y, sSize) {
@@ -88,5 +90,3 @@ var snowflake = function(sketch) {
     }
 }
 
-// instantiate the sketch
-var mySketch = new p5(snowflake);

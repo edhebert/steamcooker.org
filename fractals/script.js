@@ -1,6 +1,6 @@
 var script = {
-  popcorn: null,
-  init: function() {
+    popcorn: null,
+    init: function() {
 
     // var pop = Popcorn.smart("#videoClip", ["assets/video.webm","assets/video.mp4"]);
     var pop = Popcorn.smart("#videoClip", ["../assets/chromatest.webm","../assets/chromatest.mp4"]);
@@ -27,29 +27,134 @@ var script = {
     });
 
     /**
-     * Script
-     */
+    * Script
+    */
 
-    // Lauren
+    // Snowflake
 
     pop.code({
       start: 1 ,
       onStart: function( options ) {
 
-        var position = main.getRelativePosition({left:-400, top:600} );
+        var position = main.getRelativePosition({left:400, top:600} );
         main.sketch = new p5(snowflake, "sketchCanvas");
+        //position tree relative to the video
+        main.sketch.mainCanvas.position(100,100);
       }
     });
 
 
-        pop.code({
+    // Tree
+
+    pop.code({
       start: 10 ,
       onStart: function( options ) {
 
+        // remove old snowflake sketch
+        main.sketch.remove();
+
+        // position the tree on the canvas
         var position = main.getRelativePosition({left:-400, top:600} );
         main.sketch = new p5(tree, "sketchCanvas");
+
+        main.sketch.mainCanvas.position(-500,0);
+
+        // set the initial branchSize value
+        $('#branchSize').val(120);
       }
     });
+
+    // build the tree from its trunk root
+
+    pop.code({
+      start: 12 ,
+      onStart: function( options ) {
+
+        // iterate one step
+        $('#branchSize').val(105);
+      }
+    });
+
+    pop.code({
+      start: 14 ,
+      onStart: function( options ) {
+
+        // iterate one step
+        $('#branchSize').val(65);
+      }
+    });
+
+    pop.code({
+      start: 16 ,
+      onStart: function( options ) {
+
+        // iterate one step
+        $('#branchSize').val(45);
+      }
+    });
+
+    pop.code({
+      start: 18 ,
+      onStart: function( options ) {
+
+        // iterate one step
+        $('#branchSize').val(25);
+      }
+    });
+
+    pop.code({
+      start: 20  ,
+      onStart: function( options ) {
+
+        // iterate one step
+        $('#branchSize').val(20);
+      }
+    });
+
+    pop.code({
+      start: 22  ,
+      onStart: function( options ) {
+
+        // iterate one step
+        $('#branchSize').val(10);
+      }
+    });
+
+
+    pop.code({
+      start: 24  ,
+      onStart: function( options ) {
+
+        // iterate one step
+        $('#branchSize').val(8);
+      }
+    });
+
+    pop.code({
+      start: 26  ,
+      onStart: function( options ) {
+
+        // iterate one step
+        $('#branchSize').val(5);
+      }
+    });
+
+    // Move tree to other side of screen, show controls.
+    pop.code({
+      start: 28 ,
+      onStart: function( options ) {
+
+        // fade out the video
+        $('#videoCanvas').fadeOut();
+        
+        // move the tree canvas
+        main.sketch.mainCanvas.position(100,0);
+
+        // fade in the tree adjustment Form
+        $('#treeForm').css('visibility','visible').hide().fadeIn();
+      }
+    });
+
 
    //  pop.code({
    //    start: 4.402917 ,

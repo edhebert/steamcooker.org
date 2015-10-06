@@ -72,7 +72,6 @@ var main = {
 
     $("#begin").click( function() {
       main.playVideo();
-      console.log("clicked");
     });
     $("#begin").button('loading');
 
