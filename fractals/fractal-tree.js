@@ -116,8 +116,8 @@ var tree = function(sketch) {
       // Each branch will be 2/3rds the size of the previous one
       h *= 0.66;
 
-      // All recursive functions must have an exit condition!!!!
-      // Here, ours is when the length of the branch is 5 pixels or less
+      // All recursive functions must have an exit condition
+      // Here, ours is when the length of the branch less than the minimum branchSize
       if (h > branchSize) {
 
             // if random is selected, let nature decide from one to five branches
