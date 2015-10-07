@@ -7,9 +7,9 @@ DIGM E599 - Capstone Studio
 STEAM COOKER Capstone Project - http://steamcooker.org
 
 FRACTAL TREE 
-A component of the "Nature's Math" Fractals Lesson
+A component of the "Fractals - Nature's Math" Lesson
 
-Code inspired by "Stochastic Fractals" by Daniel Shiffman in his book, _Nature of Code_
+Inspired by the book, _Nature of Code_ by Daniel Shiffman
 
 */
 
@@ -26,8 +26,6 @@ var tree = function(sketch) {
 
       // create a new html5 canvas
       sketch.mainCanvas = sketch.createCanvas(800, 500);
-      //position tree relative to the video
-      // sketch.mainCanvas.position(-300,0);
 
       // hue, saturation, and brightness mode
       sketch.colorMode(sketch.HSB, 255);
@@ -44,8 +42,8 @@ var tree = function(sketch) {
       $("#branchNum").text(numBranches);
     }
 
+    // continuous game loop that runs indefinitely
     sketch.draw = function() {
-        // continuous game loop that runs indefinitely
 
         // check if assigned to be random
         if (!document.getElementById('isRandom').checked) {
@@ -191,6 +189,6 @@ var tree = function(sketch) {
 
 }
 
-// instantiate the sketch and append it to the DOM within id "canvas"
+// instantiate the sketch and append it to the DOM within id "canvas" (now handled in script.js)
 // var mySketch = new p5(tree, "canvas");
 
