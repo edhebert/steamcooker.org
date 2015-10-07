@@ -150,6 +150,9 @@ var script = {
         // move the tree canvas
         main.sketch.mainCanvas.position(100,0);
 
+        // bring minimum branch size back to 15 (renders more quickly)
+        $('#branchSize').val(15);
+
         // fade in the tree adjustment Form
         $('#treeForm').css('visibility','visible').hide().fadeIn();
       }
