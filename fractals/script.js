@@ -3,7 +3,7 @@ var script = {
     init: function() {
 
     // var pop = Popcorn.smart("#videoClip", ["assets/video.webm","assets/video.mp4"]);
-    var pop = Popcorn.smart("#videoClip", ["../assets/chromatest.webm","../assets/chromatest.mp4"]);
+    var pop = Popcorn.smart("#videoClip", ["../assets/fractals.webm","../assets/fractals.mp4"]);
     pop.autoplay(false);
 
     pop.on( "canplayall", function(e) {
@@ -140,23 +140,23 @@ var script = {
     });
 
     // Move tree to other side of screen, show controls.
-    pop.code({
-      start: 28 ,
-      onStart: function( options ) {
+    // pop.code({
+    //   start: 28 ,
+    //   onStart: function( options ) {
 
-        // fade out the video
-        $('#videoCanvas').fadeOut();
+    //     // fade out the video
+    //     $('#videoCanvas').fadeOut();
         
-        // move the tree canvas
-        main.sketch.mainCanvas.position(100,0);
+    //     // move the tree canvas
+    //     main.sketch.mainCanvas.position(100,0);
 
-        // bring minimum branch size back to 15 (renders more quickly)
-        $('#branchSize').val(15);
+    //     // bring minimum branch size back to 15 (renders more quickly)
+    //     $('#branchSize').val(15);
 
-        // fade in the tree adjustment Form
-        $('#treeForm').css('visibility','visible').hide().fadeIn();
-      }
-    });
+    //     // fade in the tree adjustment Form
+    //     $('#treeForm').css('visibility','visible').hide().fadeIn();
+    //   }
+    // });
 
 
    //  pop.code({
