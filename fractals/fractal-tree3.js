@@ -18,9 +18,6 @@ var tree = function(sketch) {
     // degree tree variables
     var deg, rad, trunk, color, numBranches;
 
-    // initialize hideTree to false (used to 'erase tree' at parts of the script)
-    hideTree = false;
-
     // default tree building logic to nonRandom
     sketch.isRandom = false;
 
@@ -43,7 +40,6 @@ var tree = function(sketch) {
       // initial number of numBranches to draw
       numBranches = $("#branches").val();
       $("#branchNum").text(numBranches);
-
     }
 
     // continuous game loop that runs indefinitely
@@ -79,14 +75,8 @@ var tree = function(sketch) {
       // white background in HSB
       sketch.background(0, 0, 255);
 
-      // tree color assigned by slider (unless randomized or hidden)
-
-      if (hideTree) {
-        // paint tree same color as background to hide it
-        sketch.stroke(0, 0, 255);
-      } else {
-        sketch.stroke(color, 255, 185);
-      }
+      // tree color assigned by slider (unless randomized)
+      sketch.stroke(color, 255, 185);
       sketch.push();
 
           // Start the tree from the bottom of the screen

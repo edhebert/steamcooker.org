@@ -9,14 +9,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Fractal Tree | STEAM Cooker</title>
+    <title>Fractals | STEAM Cooker</title>
 
     <!-- all LESS/CSS combined and minified with gulp.js -->
-    
     <link href="../dist/bootstrap.css" rel="stylesheet">
-<!--     <link href="../css/bootstrap.min.css" rel="stylesheet">  -->  
+    
+    <!-- CSS specific to the Fractal Lesson -->
     <link href="../css/bootstrap-switch.min.css" rel="stylesheet"> 
     <link href="../css/module.css" rel="stylesheet">
+    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -24,6 +25,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="../js/vendor/modernizr.min.js"></script>
 </head>
 
 <body id="page-top" class="index">
@@ -39,7 +41,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top"><img class="img-responsive" src="../img/logo-words.svg" alt="STEAM Cooker logo"></a>
+                <a class="navbar-brand" href="/"><img class="img-responsive" src="../img/logo-words.svg" alt="STEAM Cooker logo"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -75,34 +77,61 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-3">
-                    <form>
-                        <div class="form-group">
-                            <label for="angle">Angle: <span id="degNum"></span>&deg;</label><br>
-                            <input type="range" id="angle" min="0" max="90" value="29">                              
+
+                <div class="col-sm-9 col-sm-push-3 text-center">
+                        <div id="main">
+                            <div id="progressBar">
+                                <div id="gutter"></div>
+                                <div id="progress"></div>
+                            </div>
+
+                            <div id="pause">
+                                <i id="pauseButton" class="fa fa-pause"></i>
+                            </div>
+
+                            <div id="welcome"> 
+                            <button id="begin" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Click to Begin</button>
+                            </div>
+
+                            <div id="videoClip"></div>
+                            <div id="sketchCanvas"></div>
+                            <div id="sketchOverlay"></div>
+                            <canvas id="videoCanvas" width="960" height="720"></canvas>
+                        </div>                  
+
+                </div>
+
+                <div class="col-sm-3 col-sm-pull-9">
+                    <div id="treeForm">
+
+                        <form>
+                            <div class="form-group">
+                                <label for="angle">Angle: <span id="degNum"></span>&deg;</label><br>
+                                <input type="range" id="angle" min="0" max="90" value="29">                              
+                            </div>
+                            <div class="form-group">
+                                <label for="branches">Branches: <span id="branchNum"></span></label><br>
+                                <input type="range" id="branches" min="2" max="4" value="2">                           
+                            </div>
+                            <div class="form-group">
+                                <label for="color">Color: <span id="colorVal"></span></label><br>
+                                <input type="range" id="color" min="0" max="255" value="123">                          
+                            </div>
+                            <div class="form-group">
+                                <label for="trunk">Trunk Width: <span id="trunkNum"></span> pixels</label><br>
+                                <input type="range" id="trunk" min="5" max="30" value="10">          
+                            </div>
+                            <div class="form-group">
+                                <label for="branchSize">Final Branch Length: <span id="branchSzNum"></span> pixels</label><br>
+                                <input type="range" id="branchSize" min="5" max="120" value="120">                           
+                            </div>
+                        </form>
+                        <div class="checkbox">
+                            <input type="checkbox" name="isRandom" id="isRandom">                           
                         </div>
-                        <div class="form-group">
-                            <label for="branches">Branches: <span id="branchNum"></span></label><br>
-                            <input type="range" id="branches" min="2" max="4" value="2">                           
-                        </div>
-                        <div class="form-group">
-                            <label for="color">Color: <span id="colorVal"></span></label><br>
-                            <input type="range" id="color" min="0" max="255" value="123">                          
-                        </div>
-                        <div class="form-group">
-                            <label for="trunk">Trunk Width: <span id="trunkNum"></span> pixels</label><br>
-                            <input type="range" id="trunk" min="5" max="30" value="10">          
-                        </div>
-                        <div class="form-group">
-                            <label for="branchSize">Final Branch Length: <span id="branchSzNum"></span> pixels</label><br>
-                            <input type="range" id="branchSize" min="5" max="120" value="15">                           
-                        </div>
-                    </form>
-                    <div class="checkbox">
-                        <input type="checkbox" name="isRamdom" id="isRandom">                           
+                        
                     </div>
                 </div>
-                <div class="col-sm-8 col-sm-offset-1 text-center" id="canvas"></div>
             </div>
         </div>
     </section>
@@ -187,77 +216,6 @@
         </a>
     </div>
 
-    <!-- Module Modals -->
-    <div class="module-modal modal fade" id="moduleModal1" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Fractals: Nature's Math</h2>
-                            <hr class="star-primary">
-                            <img src="../img/module/fractals.svg" class="img-responsive img-centered" alt="">
-                            <p>Module code here!</p>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="module-modal modal fade" id="moduleModal2" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Birds of a Feather: Object Oriented Programming</h2>
-                            <hr class="star-primary">
-                            <img src="../img/module/birds.svg" class="img-responsive img-centered" alt="">
-                            <p>Module code here!</p>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="module-modal modal fade" id="moduleModal3" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Wrecking Balls</h2>
-                            <hr class="star-primary">
-                            <img src="../img/module/cradle.svg" class="img-responsive img-centered" alt="">
-                            <p>Module code here!</p>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <!-- All JS is minified and concatenated using Gulp.JS -->
     <script src="../dist/all.min.js"></script>
@@ -267,8 +225,41 @@
     <!-- P5JS dependencies-->
     <script type="text/javascript" src="../js/p5.min.js"></script>
     <script type="text/javascript" src="../js/p5.dom.js"></script>
-<!--     // <script src="../js/bootstrap-switch.min.js"></script> -->
-    <script type="text/javascript" src="fractal-tree2.js"></script>
+
+
+    <script src="../js/vendor/popcorn.min.js"></script>
+
+    <script src="../js/vendor/seriously.js"></script>
+    <script src="../js/vendor/effects/seriously.chroma.js"></script>
+
+    <script src="script2.js"></script>
+    <script src="main.js"></script>
+
+    <!-- lesson scripts -->
+    <script type="text/javascript" src="fractal-snowflake.js"></script>
+    <script type="text/javascript" src="fractal-tree3.js"></script>
+
+    <script>
+
+        $(document).ready( function () {
+
+        if (Seriously.incompatible()) {
+          $("#errorWebGL").show();
+          $("#errorFeature").hide();
+          $("#error").fadeIn();
+          $("#main").hide();
+        } else if (!Modernizr.webaudio || !Modernizr.csstransforms) {
+          $("#errorWebGL").hide();
+          $("#errorFeature").show();
+          $("#error").fadeIn();
+          $("#main").hide();
+        } else {
+          main.init();
+        }
+
+        });
+
+    </script>
 
 </body>
 

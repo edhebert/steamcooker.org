@@ -87,6 +87,7 @@ var script = {
 
         // set the initial branchSize value
         $('#branchSize').val(5);
+
       }
     });
 
@@ -95,8 +96,8 @@ var script = {
       start: 89.184778 ,
       onStart: function( options ) {
 
-        // remove old snowflake sketch
-        main.sketch.remove();
+        hideTree = true;
+        
       }
     });
 
@@ -113,11 +114,8 @@ var script = {
         // set the initial branchSize value
         $('#branchSize').val(120);
 
-        // position the tree on the canvas
-        var position = main.getRelativePosition({left:-400, top:600} );
-        main.sketch = new p5(tree, "sketchCanvas");
-
-        main.sketch.mainCanvas.position(-150,0);
+        // show tree again
+        hideTree = false;
 
       }
     });
@@ -186,23 +184,22 @@ var script = {
 
         main.sketch.loop();
         main.sketch.noLoop();
+        $('#isRandom').bootstrapSwitch('state', true);
       }
     });
 
 
 
-    // // Move tree to other side of screen, show controls.
+    // Show controls on the screen
     pop.code({
       start: 457.55 ,
       onStart: function( options ) {
    
+        // toggle the random state
         main.sketch.isRandom = false;
-        main.sketch.loop();
+        $('#isRandom').bootstrapSwitch('state', false);
 
-        // move the tree canvas
-        main.sketch.mainCanvas.position(-150,0);
-
-        // bring minimum branch size back to 15 (renders more quickly)
+        // set the initial branchSize value
         $('#branchSize').val(15);
 
         // fade in the tree adjustment Form
@@ -210,11 +207,29 @@ var script = {
       }
     });
 
+    // toggle the stochastic tree button on and off
+    pop.code({
+      start: 466.5 ,
+      onStart: function( options ) {
+   
+       $('#isRandom').bootstrapSwitch('state', true);
+      }
+    });
+
+    pop.code({
+      start: 469.5 ,
+      onStart: function( options ) {
+   
+       $('#isRandom').bootstrapSwitch('state', false);
+      }
+    });
+
+
     pop.code({
       start: 493.952243 ,
       onStart: function( options ) { 
         // fade out the video
-        // $('#videoCanvas').fadeOut();
+        $('#videoCanvas').fadeOut();
       }
     });
 
