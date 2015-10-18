@@ -65,7 +65,7 @@ canvas {
     transform-origin: bottom right;
 }
 
-#progressBar {
+/*#progressBar {
     position: absolute;
     height: 8px;
     bottom: 0;
@@ -88,7 +88,7 @@ canvas {
     height: 8px;
     width: 100%;
     background:#ccc;
-}
+}*/
 /**
  * Sketch
  */

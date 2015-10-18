@@ -23,7 +23,7 @@ var script = {
     pop.on("timeupdate", function(e) {
       var position = pop.currentTime() / pop.duration();
       var width = position * $("#main").width();
-      $("#progress").css('width', width);
+      // $("#progress").css('width', width);
     });
 
     /**
@@ -46,7 +46,7 @@ var script = {
       start: 5.267798 ,
       onStart: function( options ) {
 
-        var position = main.getRelativePosition({left:400, top:600} );
+        // var position = main.getRelativePosition({left:400, top:600} );
         main.sketch = new p5(snowflake, "sketchCanvas");
         //position tree relative to the video
         main.sketch.mainCanvas.position(200,100);
@@ -211,6 +211,9 @@ var script = {
 
         // fade in the tree adjustment Form
         $('#treeForm').css('visibility','visible').hide().fadeIn();
+
+        // fade out our pseudocode
+        $('#pseudocode').fadeOut();
       }
     });
 
