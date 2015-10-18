@@ -28,15 +28,15 @@ var snowflake = function(sketch) {
 
     sketch.mainCanvas.mousePressed(function(){
         //draw another random snowflake each time the mouse is pressed
-        sketch.drawSnowflake(sketch.width/2, sketch.height/2, sketch.random(20,80));
+        sketch.drawSnowflake(sketch.width/2, sketch.height/2, sketch.random(40,80));
     }); 
 
 
     }
 
     sketch.draw = function() {
-        // draw a random snowflake in the middle of the screen, from a radius of 10 to 80 pixels across
-        sketch.drawSnowflake(sketch.width/2, sketch.height/2, sketch.random(20,80));
+        // draw a random snowflake in the middle of the screen, from a radius of 40 to 80 pixels across
+        sketch.drawSnowflake(sketch.width/2, sketch.height/2, sketch.random(40,80));
 
         // draw only one snowflake - don't keep looping
         sketch.noLoop();
@@ -66,8 +66,8 @@ var snowflake = function(sketch) {
             // weight the snowflake stroke randomly based on its size
             sketch.strokeWeight(sketch.random(sSize*0.025, sSize*0.05));
 
-            // create a random number of (even) snowflake arms from 4 to 14
-            var arms = 2 * Math.floor(sketch.random(2,7));
+            // create a random number of (even) snowflake arms from 6 to 14
+            var arms = 2 * Math.floor(sketch.random(3,7));
 
             // draw each of the arms of the snowflake
             for (var i = 0; i < arms; i++) {

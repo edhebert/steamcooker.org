@@ -19,7 +19,7 @@ var tree = function(sketch) {
     var deg, rad, trunk, color, numBranches;
 
     // default tree building logic to nonRandom
-    var isRandom = false;
+    sketch.isRandom = false;
 
     // define canvas size and all global variables
     sketch.setup = function() {
@@ -83,7 +83,7 @@ var tree = function(sketch) {
           sketch.translate(sketch.width/2, sketch.height);
 
           // if random, let 'nature' decide the tree parameters!
-          if(isRandom) {
+          if(sketch.isRandom) {
             trunk = Math.floor(sketch.random(3, 20));
             branchSize = 5;
             sketch.stroke(Math.floor(sketch.random(0, 255)), 255, 128);
@@ -121,7 +121,7 @@ var tree = function(sketch) {
       if (h > branchSize) {
 
             // if random is selected, let nature decide from one to five branches
-            if (isRandom) {
+            if (sketch.isRandom) {
                 var numBranches = Math.floor(sketch.random(1, 5));
             } else {
                 var numBranches = $("#branches").val();
@@ -130,7 +130,7 @@ var tree = function(sketch) {
             // loop for the number of numBranches
             for (var i = 0; i < numBranches; i++) {
 
-                if (isRandom) {
+                if (sketch.isRandom) {
                     // calculate a random branch rotation angle
                     var theta = sketch.random(-Math.PI/4, Math.PI/4);
                 } else {
@@ -164,7 +164,7 @@ var tree = function(sketch) {
         // if it's checked, disable slider inputs
         if ($(this).is(":checked")) {
           // assign global variable to randomize
-          isRandom = true; 
+          sketch.isRandom = true; 
           $( "input[type='range']" ).each(function(){
             $(this).prop('disabled', true);
             $('form').css('opacity','0.2');
@@ -173,7 +173,7 @@ var tree = function(sketch) {
 
         } else {
 
-          isRandom = false;
+          sketch.isRandom = false;
 
           // enable all inputs and restore the animation loop
           $( "input[type='range']" ).each(function(){
@@ -190,5 +190,5 @@ var tree = function(sketch) {
 }
 
 // instantiate the sketch and append it to the DOM within id "canvas" (now handled in script.js)
-// var mySketch = new p5(tree, "canvas");
+var mySketch = new p5(tree, "canvas");
 

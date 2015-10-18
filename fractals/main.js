@@ -1,7 +1,13 @@
+/* main.js is the key initialization function - this code was written to control the hello.p5.js demonstration
+   hello.p5js.org 
+
+  Adapted for use in STEAM Cooker Fractals lesson by Ed Hebert
+ */
+
 var main = {
   sketch: null,
   scaleFactor: 1.0,
-  debug: false, 
+  debug: true, 
 
   // Initalize Demo
 
@@ -40,8 +46,10 @@ var main = {
         if(keypress == "p"){
           if (script.popcorn.paused())
             script.popcorn.play();
-          else
+          else {
             script.popcorn.pause();
+            console.log( script.popcorn.currentTime());
+          }
         }
 
         if(keypress == "."){

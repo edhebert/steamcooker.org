@@ -102,10 +102,10 @@ canvas {
 
 #videoCanvas {
     position: absolute;
-    bottom: 0;
+    bottom: 100px;
     right: 0;
-    width: 960px;
-    height: 720px;
+    width: 480px;
+    height: 360px;
     pointer-events: none;
     display:none;
     z-index: 200;
