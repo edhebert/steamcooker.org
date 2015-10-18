@@ -34,7 +34,7 @@ canvas {
 }
 
 #pause:hover {
-  color: #ED225D;
+  color: #F57F20;
 }
 
 
@@ -63,6 +63,12 @@ canvas {
     background: white;
     /* set the origin of any transforms of scale from JS */
     transform-origin: bottom right;
+}
+
+/* begin button */
+
+#begin {
+    margin-top: 100px;
 }
 
 /*#progressBar {
