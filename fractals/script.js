@@ -30,6 +30,14 @@ var script = {
     * Script
     */
 
+    // set the stage
+    pop.code({
+      start: 0 ,
+      onStart: function( options ) {
+
+        $('#treeForm').fadeOut();
+      }
+    });
 
 
     // Snowflake
@@ -97,7 +105,9 @@ var script = {
       onStart: function( options ) {
 
         hideTree = true;
-        
+
+        // set the initial branchSize value in preparation for being shown again
+        $('#branchSize').val(120);        
       }
     });
 
@@ -110,9 +120,6 @@ var script = {
     pop.code({
       start: 141.645849 ,
       onStart: function( options ) {
-
-        // set the initial branchSize value
-        $('#branchSize').val(120);
 
         // show tree again
         hideTree = false;
