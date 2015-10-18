@@ -2,7 +2,7 @@ var script = {
     popcorn: null,
     init: function() {
 
-    // var pop = Popcorn.smart("#videoClip", ["assets/video.webm","assets/video.mp4"]);
+    // define the popcorn video
     var pop = Popcorn.smart("#videoClip", ["../assets/fractals2.webm","../assets/fractals2.mp4"]);
     pop.autoplay(false);
 
@@ -49,7 +49,7 @@ var script = {
         var position = main.getRelativePosition({left:400, top:600} );
         main.sketch = new p5(snowflake, "sketchCanvas");
         //position tree relative to the video
-        main.sketch.mainCanvas.position(200,200);
+        main.sketch.mainCanvas.position(200,100);
       }
     });
 
