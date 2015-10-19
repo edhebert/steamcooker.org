@@ -55,7 +55,7 @@ var script = {
 
     // random flake # 1
     pop.code({
-      start: 14.991659 ,
+      start: 14.851659 ,
       onStart: function( options ) {
         main.sketch.drawSnowflake(main.sketch.width/2, main.sketch.height/2, main.sketch.random(30,80));
       }
