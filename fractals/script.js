@@ -63,7 +63,7 @@ var script = {
 
     // random flake # 2
     pop.code({
-      start: 16.233822 ,
+      start: 16.133822 ,
       onStart: function( options ) {
         main.sketch.drawSnowflake(main.sketch.width/2, main.sketch.height/2, main.sketch.random(30,80));
       }
@@ -71,7 +71,7 @@ var script = {
 
     // random flake # 3
     pop.code({
-      start: 17.751037 ,
+      start: 17.551037 ,
       onStart: function( options ) {
         main.sketch.drawSnowflake(main.sketch.width/2, main.sketch.height/2, main.sketch.random(30,80));
       }
@@ -90,6 +90,9 @@ var script = {
         // position the tree on the canvas
         var position = main.getRelativePosition({left:-400, top:600} );
         main.sketch = new p5(tree, "sketchCanvas");
+
+        // allow mouse to control branch angle
+        mouseAngle = true;
 
         main.sketch.mainCanvas.position(-150,0);
 
@@ -120,6 +123,9 @@ var script = {
     pop.code({
       start: 141.645849 ,
       onStart: function( options ) {
+
+        // disable mouse control of angle
+        mouseAngle = false;
 
         // show tree again
         hideTree = false;

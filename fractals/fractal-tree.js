@@ -21,6 +21,9 @@ var tree = function(sketch) {
     // initialize hideTree to false (used to 'erase tree' at parts of the script)
     hideTree = false;
 
+    // allow the mouse to control the angle of the tree
+    mouseAngle = false;
+
     // default tree building logic to nonRandom
     sketch.isRandom = false;
 
@@ -51,9 +54,15 @@ var tree = function(sketch) {
 
         // check if assigned to be random
         if (!document.getElementById('isRandom').checked) {
-          deg = $("#angle").val();
-          $("#degNum").text(deg);
-          rad = sketch.radians(deg); 
+          // check if we're using the mouse to set branch angle
+          if (mouseAngle) {
+            // attach tree angle to mouse position
+            deg = sketch.degrees(sketch.map(sketch.mouseX,0,sketch.width,0,Math.PI/2));
+          } else {
+            deg = $("#angle").val();
+            $("#degNum").text(deg);
+            rad = sketch.radians(deg); 
+          }
         }
 
         // begin a new tree
