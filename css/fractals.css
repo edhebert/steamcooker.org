@@ -8,6 +8,14 @@
 #module {
     margin-bottom: 0;
     padding-bottom: 0;
+    background-size: cover;
+}
+
+/* preload all future background images for call via popcorn*/
+#module:before{
+     content: '';
+     background:  url(../img/fractals-clouds.jpg), url(../img/fractals-mountains.jpg),url(../img/fractals-trees.jpg), url(../img/logo.png);
+     width:0;height:0;visibility:hidden;
 }
 
 canvas {
@@ -60,7 +68,7 @@ canvas {
 #main {
     width: 800px;
     height: 550px;
-    background: white;
+    /*background: white;*/
     /* set the origin of any transforms of scale from JS */
     transform-origin: bottom left;
 }

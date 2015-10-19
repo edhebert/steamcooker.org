@@ -6,6 +6,7 @@ var script = {
     var pop = Popcorn.smart("#videoClip", ["../assets/fractals2.webm","../assets/fractals2.mp4"]);
     pop.autoplay(false);
 
+
     pop.on( "canplayall", function(e) {
       main.prepareVideo();
     });  
@@ -20,11 +21,11 @@ var script = {
         $("#pauseButton").addClass("fa-play"); 
     });   
 
-    pop.on("timeupdate", function(e) {
-      var position = pop.currentTime() / pop.duration();
-      var width = position * $("#main").width();
-      // $("#progress").css('width', width);
-    });
+    // pop.on("timeupdate", function(e) {
+    //   var position = pop.currentTime() / pop.duration();
+    //   var width = position * $("#main").width();
+    //   // $("#progress").css('width', width);
+    // });
 
     /**
     * Script
@@ -34,7 +35,6 @@ var script = {
     pop.code({
       start: 0 ,
       onStart: function( options ) {
-
         $('#treeForm').fadeOut();
       }
     });
@@ -78,14 +78,58 @@ var script = {
     });
 
 
+    // Images of Clouds, Mountains, and Trees
+
+    // clouds
+    pop.code({
+      start: 47.299201 ,
+      onStart: function( options ) {
+
+        // remove old snowflake sketch
+        main.sketch.remove();
+
+        $('#module').css({'background-image': 'url(../img/fractals-clouds.jpg)'});
+      }
+    });
+
+    // mountains
+    pop.code({
+      start: 49.008596 ,
+      onStart: function( options ) {
+        $('#module').css({'background-image': 'url(../img/fractals-mountains.jpg)'});
+      }
+    });
+
+    // trees
+    pop.code({
+      start: 51.018562 ,
+      onStart: function( options ) {
+        $('#module').css({'background-image': 'url(../img/fractals-trees.jpg)'});
+      }
+    });
+
+    // imagination
+    pop.code({
+      start: 59.5 ,
+      onStart: function( options ) {
+        $('#module').css({
+          'background-image': 'url(../img/logo.png)',
+          'background-repeat': 'no-repeat',
+          'background-position': 'center center',
+          'background-size': '400px'
+        });
+      }
+    });
+
     // Tree
 
     pop.code({
       start: 71.0 ,
       onStart: function( options ) {
 
-        // remove old snowflake sketch
-        main.sketch.remove();
+        // clear background
+
+        $('#module').css({'background-image': 'none'});
 
         // position the tree on the canvas
         // var position = main.getRelativePosition({left:-400, top:600} );

@@ -58,7 +58,8 @@ var tree = function(sketch) {
           if (mouseAngle) {
             // attach tree angle to mouse position
             deg = sketch.degrees(sketch.map(sketch.mouseX,0,sketch.width,0,Math.PI/2));
-          } else {
+            if (deg == 0) {
+              deg = $("#angle").val(); } } else {
             deg = $("#angle").val();
             $("#degNum").text(deg);
             rad = sketch.radians(deg); 
