@@ -49,7 +49,7 @@ var script = {
         // var position = main.getRelativePosition({left:400, top:600} );
         main.sketch = new p5(snowflake, "sketchCanvas");
         //position tree relative to the video
-        main.sketch.mainCanvas.position(200,100);
+        main.sketch.mainCanvas.position(200,150);
       }
     });
 
@@ -88,13 +88,13 @@ var script = {
         main.sketch.remove();
 
         // position the tree on the canvas
-        var position = main.getRelativePosition({left:-400, top:600} );
+        // var position = main.getRelativePosition({left:-400, top:600} );
         main.sketch = new p5(tree, "sketchCanvas");
 
         // allow mouse to control branch angle
         mouseAngle = true;
 
-        main.sketch.mainCanvas.position(-150,0);
+        main.sketch.mainCanvas.position(-150,50);
 
         // set the initial branchSize value
         $('#branchSize').val(5);
@@ -121,7 +121,7 @@ var script = {
     // build the tree from its trunk root ("200 px" in the script)
 
     pop.code({
-      start: 141.645849 ,
+      start: 141.545849 ,
       onStart: function( options ) {
 
         // disable mouse control of angle
@@ -215,11 +215,11 @@ var script = {
         // set the initial branchSize value
         $('#branchSize').val(15);
 
+        // hide our pseudocode
+        $('#pseudocode').hide();
+
         // fade in the tree adjustment Form
         $('#treeForm').css('visibility','visible').hide().fadeIn();
-
-        // fade out our pseudocode
-        $('#pseudocode').fadeOut();
       }
     });
 

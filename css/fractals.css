@@ -1,6 +1,6 @@
 @media (min-width: 768px) {
     #module .container {
-        padding-top: 75px;
+        padding-top: 40px;
         padding-bottom: 0;
     }   
 }
@@ -59,7 +59,7 @@ canvas {
 
 #main {
     width: 800px;
-    height: 500px;
+    height: 550px;
     background: white;
     /* set the origin of any transforms of scale from JS */
     transform-origin: bottom right;
