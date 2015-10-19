@@ -62,7 +62,7 @@ canvas {
     height: 550px;
     background: white;
     /* set the origin of any transforms of scale from JS */
-    transform-origin: bottom right;
+    transform-origin: bottom left;
 }
 
 /* begin button */
