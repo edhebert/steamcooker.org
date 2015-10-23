@@ -19,7 +19,7 @@ https://github.com/jain7th/Processing-Tree-and-Snowflake-Generator
 var snowflake = function(sketch) {
 
     sketch.setup = function() {
-        sketch.mainCanvas = sketch.createCanvas(160, 160);
+        sketch.mainCanvas = sketch.createCanvas(400, 400);
 
         // center the snowflake drawing within the canvas
         sketch.rectMode(sketch.CENTER);
@@ -28,15 +28,15 @@ var snowflake = function(sketch) {
 
     sketch.mainCanvas.mousePressed(function(){
         //draw another random snowflake each time the mouse is pressed
-        sketch.drawSnowflake(sketch.width/2, sketch.height/2, sketch.random(40,80));
+        sketch.drawSnowflake(sketch.width/2, sketch.height/2, sketch.random(125,175));
     }); 
 
 
     }
 
     sketch.draw = function() {
-        // draw a random snowflake in the middle of the screen, from a radius of 40 to 80 pixels across
-        sketch.drawSnowflake(sketch.width/2, sketch.height/2, sketch.random(40,80));
+        // draw a random snowflake in the middle of the screen, from a radius of 150 to 200 pixels across
+        sketch.drawSnowflake(sketch.width/2, sketch.height/2, sketch.random(125,175));
 
         // draw only one snowflake - don't keep looping
         sketch.noLoop();
@@ -64,7 +64,7 @@ var snowflake = function(sketch) {
             // choose a blue-green random color
             sketch.stroke(sketch.random(0, 40), sketch.random(150, 220), sketch.random(150, 255));
             // weight the snowflake stroke randomly based on its size
-            sketch.strokeWeight(sketch.random(sSize*0.025, sSize*0.05));
+            sketch.strokeWeight(sketch.random(sSize*0.01, sSize*0.03));
 
             // create a random number of (even) snowflake arms from 6 to 14
             var arms = 2 * Math.floor(sketch.random(3,7));

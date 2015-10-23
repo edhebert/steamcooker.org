@@ -14,7 +14,7 @@
 /* preload all future background images for call via popcorn*/
 #module:before{
      content: '';
-     background:  url(../img/fractals-clouds.jpg), url(../img/fractals-mountains.jpg),url(../img/fractals-trees.jpg), url(../img/logo.png);
+     background:  url(../img/fractals-clouds.jpg), url(../img/fractals-mountains.jpg),url(../img/fractals-trees.jpg), url(../img/logo.png), url(../img/recursion.jpg);
      width:0;height:0;visibility:hidden;
 }
 
@@ -26,6 +26,9 @@ canvas {
     margin-top: 40px;
 }
 
+#presentation {
+  display: none;
+}
 
 /* UI */
 
@@ -62,47 +65,25 @@ canvas {
     visibility: hidden;
 }
 
-
-/* Video area */
-
-#main {
-    width: 800px;
-    height: 550px;
-    /*background: white;*/
-    /* set the origin of any transforms of scale from JS */
-    transform-origin: bottom left;
+/* Code and text snippets in sidebar */
+#pseudocode, 
+#fractaltitle, 
+#line1,
+#line2,
+#line3,
+#line4,
+#line5,
+#line6,
+#line7,
+#line8,
+#line9,
+#recursion {
+  display: none;
 }
 
-/* begin button */
 
-#begin {
-    margin-top: 100px;
-}
 
-/*#progressBar {
-    position: absolute;
-    height: 8px;
-    bottom: 0;
-    z-index: 1000;
-}
 
-#progress {
-    position:absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 8px;
-    background:#18BC9C;
-}
-
-#gutter {
-    position:absolute;
-    top: 0;
-    left: 0;
-    height: 8px;
-    width: 100%;
-    background:#ccc;
-}*/
 /**
  * Sketch
  */
@@ -122,6 +103,24 @@ canvas {
  * Video
  */
 
+ #welcome {
+  height: 550px;
+ }
+
+ #main {
+    width: 800px;
+    height: 550px;
+    /*background: white;*/
+    /* set the origin of any transforms of scale from JS */
+    transform-origin: bottom left;
+}
+
+/* begin button */
+
+#begin {
+    margin: 100px;
+}
+
 #videoClip {
     position: absolute;
     display: none;
@@ -137,4 +136,14 @@ canvas {
     pointer-events: none;
     display:none;
     z-index: 200;
+}
+
+/* Code to "blink" tet when it's highlighted */
+
+.blinkme {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {  
+  50% { color: orange; }
 }

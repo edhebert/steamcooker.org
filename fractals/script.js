@@ -46,10 +46,9 @@ var script = {
       start: 5.267798 ,
       onStart: function( options ) {
 
-        // var position = main.getRelativePosition({left:400, top:600} );
         main.sketch = new p5(snowflake, "sketchCanvas");
         //position tree relative to the video
-        main.sketch.mainCanvas.position(200,150);
+        main.sketch.mainCanvas.position(0,0);
       }
     });
 
@@ -57,7 +56,7 @@ var script = {
     pop.code({
       start: 14.851659 ,
       onStart: function( options ) {
-        main.sketch.drawSnowflake(main.sketch.width/2, main.sketch.height/2, main.sketch.random(30,80));
+        main.sketch.drawSnowflake(main.sketch.width/2, main.sketch.height/2, main.sketch.random(125,175));
       }
     });
 
@@ -65,7 +64,7 @@ var script = {
     pop.code({
       start: 16.133822 ,
       onStart: function( options ) {
-        main.sketch.drawSnowflake(main.sketch.width/2, main.sketch.height/2, main.sketch.random(30,80));
+        main.sketch.drawSnowflake(main.sketch.width/2, main.sketch.height/2, main.sketch.random(125,175));
       }
     });
 
@@ -73,10 +72,23 @@ var script = {
     pop.code({
       start: 17.551037 ,
       onStart: function( options ) {
-        main.sketch.drawSnowflake(main.sketch.width/2, main.sketch.height/2, main.sketch.random(30,80));
+        main.sketch.drawSnowflake(main.sketch.width/2, main.sketch.height/2, main.sketch.random(125,175));
       }
     });
 
+
+     // fractal definition
+    pop.code({
+      start: 38.0 ,
+      onStart: function( options ) {
+
+        // remove old snowflake sketch
+        main.sketch.remove();
+
+        $('#fractaltitle').fadeIn();
+      }
+    });
+   
 
     // Images of Clouds, Mountains, and Trees
 
@@ -85,8 +97,8 @@ var script = {
       start: 47.299201 ,
       onStart: function( options ) {
 
-        // remove old snowflake sketch
-        main.sketch.remove();
+        // hide sidebar copy
+        // $('#fractaltitle').hide();
 
         $('#module').css({'background-image': 'url(../img/fractals-clouds.jpg)'});
       }
@@ -118,6 +130,7 @@ var script = {
           'background-position': 'center center',
           'background-size': '400px'
         });
+        $('#fractaltitle').hide();
       }
     });
 
@@ -130,6 +143,9 @@ var script = {
         // clear background
 
         $('#module').css({'background-image': 'none'});
+
+        // hide sidebar copy
+        $('#fractaltitle').hide();
 
         // position the tree on the canvas
         // var position = main.getRelativePosition({left:-400, top:600} );
@@ -159,6 +175,21 @@ var script = {
     });
 
 
+    // begin displaying pseudocode
+    pop.code({
+      start: 95.484 ,
+      onStart: function( options ) {
+        $('#pseudocode').fadeIn();       
+      }
+    });
+
+    // show first line of code, length = 200px
+    pop.code({
+      start: 120.911539 ,
+      onStart: function( options ) {
+        $('#line1, #line2, #line3').fadeIn();       
+      }
+    });
 
 
 
@@ -177,6 +208,68 @@ var script = {
       }
     });
 
+    // fade in the "base case"
+    pop.code({
+      start: 175 ,
+      onStart: function( options ) {
+        $('#line4').fadeIn();       
+      }
+    });
+
+    // blink it
+    pop.code({
+      start: 190 ,
+      onStart: function( options ) {
+        $('#line4').addClass('blinkme');       
+      }
+    });
+
+
+    pop.code({
+      start: 197 ,
+      onStart: function( options ) {
+        $('#line4').removeClass('blinkme');       
+      }
+    });
+
+    pop.code({
+      start: 223.605365 ,
+      onStart: function( options ) {
+        $('#line5').fadeIn();       
+      }
+    });
+
+    pop.code({
+      start: 229.909052 ,
+      onStart: function( options ) {
+        $('#line6, #line7, #line8, #line9').fadeIn();       
+      }
+    });
+
+    // blink left and right branch draw function text
+
+    pop.code({
+      start: 233 ,
+      onStart: function( options ) {
+        $('#line6').addClass('blinkme');       
+      }
+    }); 
+
+
+    pop.code({
+      start: 236 ,
+      onStart: function( options ) {
+        $('#line6').removeClass('blinkme');   
+        $('#line8').addClass('blinkme');     
+      }
+    }); 
+
+    pop.code({
+      start: 239 ,
+      onStart: function( options ) { 
+        $('#line8').removeClass('blinkme');     
+      }
+    }); 
 
     pop.code({
       start: 241.55 ,
@@ -184,6 +277,44 @@ var script = {
 
         // iterate one step ("100 px" in the script)
         $('#branchSize').val(105);
+      }
+    });
+
+    pop.code({
+      start: 273 ,
+      onStart: function( options ) { 
+        $('#line2,#line7,#line9').addClass('blinkme');     
+      }
+    }); 
+
+    pop.code({
+      start: 280 ,
+      onStart: function( options ) { 
+        $('#line2,#line7,#line9').removeClass('blinkme');     
+      }
+    }); 
+
+    pop.code({
+      start: 291 ,
+      onStart: function( options ) {
+        // show a recursive image background
+        $('#sketchCanvas').hide();
+        $('#module').css({
+          'background-image': 'url(../img/recursion.jpg)',
+          'background-size' : 'cover'
+        });
+        $('#recursion').fadeIn();
+      }
+    });
+
+
+    pop.code({
+      start: 305 ,
+      onStart: function( options ) {
+        // show a recursive image background
+        $('#module').css({'background-image': 'none'});
+        $('#sketchCanvas').show();
+        $('#recursion').fadeOut();
       }
     });
 

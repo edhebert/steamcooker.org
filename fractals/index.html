@@ -69,20 +69,20 @@
     <!-- Module Grid Section -->
     <section id="module">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-9 col-sm-push-3 text-center">
+            <div class="row" id="welcome">
+                <div class="col-sm-12 text-center">
+                    <h2>Fractals</h2>
+                    <h3>Mathematics in Nature</h3>
+                    <hr class="star-primary">                
+                    <button id="begin" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Click to Begin</button>
+                </div>
+            </div>
+            <div class="row" id="presentation">
+                <div class="col-sm-8 col-sm-push-4 text-center">
                         <div id="main">
-<!--                             <div id="progressBar">
-                                <div id="gutter"></div>
-                                <div id="progress"></div>
-                            </div> -->
 
                             <div id="pause">
                                 <i id="pauseButton" class="fa fa-pause"></i>
-                            </div>
-
-                            <div id="welcome"> 
-                            <button id="begin" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Click to Begin</button>
                             </div>
 
                             <div id="videoClip"></div>
@@ -93,23 +93,51 @@
 
                 </div>
 
-                <div class="col-sm-3 col-sm-pull-9 sidebar">
-                    <h2>Fractals</h2>
-                    <h3>Mathematics in Nature</h3>
-                    <hr class="star-primary">
+                <div class="col-sm-4 col-sm-pull-8 sidebar">
+                    <div class="panel panel-default" id="fractaltitle">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Fractal Geometry</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div>A type of math that helps us better understand or illustrate different properties in nature.</div><br>
+                            <div>Fractal objects are made by making similar copies of themselves over and over again.</div><br>
+                            <div>This property of fractals is called <em><strong>self-similarity</strong></em>.</div>
+                        </div>                      
+                    </div>
 
                     <div class="panel panel-default" id="pseudocode">
                       <div class="panel-heading">
-                        <h3 class="panel-title">"Branch" Function</h3>
+                      <h3 class="panel-title">'Branch'</h3>
+                      <h3 class="panel-title">A Fractal Tree Recipe</h3>
                       </div>
                       <div class="panel-body">
-                        Pseudocode will eventually appear here, in time with the video.
+                        <div>A function &ndash; or recipe of instructions &ndash; to draw a tree on the screen using math.</div><br>
+                        <div>
+                            <span id="line1">let <em><strong>length</strong></em> = 200 pixels</span>
+                            <br><br>
+                            <span id="line2"><em>function</em> Branch(<em><strong>length</strong></em>)</span>
+                        </div>
                         <ul>
-                            <li>Step 1</li>
-                            <li>Step 2</li>
-                            <li>Step 3</li>
+                            <span id="line3"><li>Draw a line that's <em><strong>length</strong></em> pixels long</li></span>
+                            <span id="line4"><li>While <em><strong>length</strong></em> > 10 pixels, draw these steps:</li></span>
+                            <ul>
+                                <span id="line5"><li>go to the top end of the branch</li></span>
+                                <span id="line6"><li>Turn to the left</li></span>
+                                <span id="line7"><li>Branch(<em><strong>length</strong></em> / 2)</li></span>
+                                <span id="line8"><li>Turn to the right</li></span>
+                                <span id="line9"><li>Branch(<em><strong>length</strong></em> / 2)</li></span>
+                            </ul>
                         </ul>
                       </div>
+                    </div>
+
+                    <div class="panel panel-warning" id="recursion">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Recursion</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div>Recursion is the process of repeating items in a <em><strong>self-similar</strong></em> way.</div>
+                        </div>                      
                     </div>
 
                     <div id="treeForm">

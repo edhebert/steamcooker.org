@@ -117,11 +117,11 @@ var main = {
         chroma.screen = [.2,1,.1,1];
       } else if (!Modernizr.video.webm && Modernizr.video.h264) {
         //console.log("Safari");
-        chroma.weight = 1.25;
+        chroma.weight = 1.13;
         chroma.balance = 1;
         chroma.clipWhite = 1;
         chroma.clipBlack = 0;        
-        chroma.screen = [.3,.9,.15,1];
+        chroma.screen = [.68,1,.21,1];
       } else if (Modernizr.video.webm && !Modernizr.video.h264) {
         //console.log("Firefox");
         chroma.weight = 1.05;
@@ -148,9 +148,10 @@ var main = {
     //console.log("Starting video.");
     //console.log("Length " + script.popcorn.duration() + ".");
 
-    $("#welcome").fadeOut();
+    $("#welcome").hide();
+    $('#presentation').fadeIn();
     $("#videoCanvas").fadeIn(); 
-    $("#p5").fadeIn(); 
+    // $("#p5").fadeIn(); 
     $("#pause").fadeIn();
 
     var time = main.getStartTime();
