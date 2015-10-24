@@ -26,7 +26,13 @@ gulp.task('less', function() {
                 /^\.navbar/,
                 /^\.col-/,
                 /^\.fa-play/,
-                /^\.fa-spin/
+                /^\.fa-spin/,
+                ".fade",
+                ".fade.in",
+                ".collapse",
+                ".collapse.in",
+                ".collapsing",
+                /^\.top-nav-collapse/
             ]
         }))
         .pipe(minifyCSS())

@@ -196,8 +196,10 @@ var main = {
       } 
 
       main.scaleFactor = ratio;
+
       if (main.sketch) main.sketch.scaleFactor = main.scaleFactor;
       $('#main').css('transform', transform);
+
   }
 
 }

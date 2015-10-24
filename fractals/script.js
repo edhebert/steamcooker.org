@@ -43,7 +43,7 @@ var script = {
     // Snowflake
 
     pop.code({
-      start: 5.267798 ,
+      start: 5.1 ,
       onStart: function( options ) {
 
         main.sketch = new p5(snowflake, "sketchCanvas");
