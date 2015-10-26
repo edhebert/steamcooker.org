@@ -4,7 +4,7 @@ var longScript = {
 
     // define the popcorn video
     var pop = Popcorn.smart("#videoClip", ["../assets/fractals-nopixels.webm","../assets/fractals-nopixels.mp4"]);
-    pop.autoplay(false);
+    pop.autoplay(true);
 
 
     pop.on( "canplayall", function(e) {
@@ -20,12 +20,6 @@ var longScript = {
         $("#pauseButton").removeClass("fa-pause");
         $("#pauseButton").addClass("fa-play"); 
     });   
-
-    // pop.on("timeupdate", function(e) {
-    //   var position = pop.currentTime() / pop.duration();
-    //   var width = position * $("#main").width();
-    //   // $("#progress").css('width', width);
-    // });
 
     /**
     * Script

@@ -4,7 +4,7 @@ var shortScript = {
 
     // define the popcorn video
     var pop = Popcorn.smart("#videoClip", ["../assets/fractals-short.webm","../assets/fractals-short.mp4"]);
-    pop.autoplay(false);
+    pop.autoplay(true);
 
 
     pop.on( "canplayall", function(e) {
