@@ -81,6 +81,7 @@ var main = {
     $("#begin").click( function() {
       main.playVideo();
     });
+    
     $("#begin").button('loading');
 
     // Pause on click

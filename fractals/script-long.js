@@ -1,4 +1,4 @@
-var script = {
+var longScript = {
     popcorn: null,
     init: function() {
 

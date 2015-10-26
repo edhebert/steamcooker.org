@@ -1,4 +1,4 @@
-var script = {
+var shortScript = {
     popcorn: null,
     init: function() {
 
