@@ -32,6 +32,10 @@ canvas {
 
 /* UI */
 
+button {
+  margin: 10px;
+}
+
 #pause {
   position:absolute;
   display: none;
@@ -66,6 +70,7 @@ canvas {
 }
 
 /* Code and text snippets in sidebar */
+
 #pseudocode, 
 #fractaltitle, 
 #line1,

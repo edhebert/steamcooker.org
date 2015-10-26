@@ -51,7 +51,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#module">Modules</a>
+                        <a href="#module">Fractal Lesson</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#info">Info for Grown-Ups</a>
@@ -76,9 +76,9 @@
                     <hr class="star-primary">  
                     <img src="../img/module/fractals2.svg" alt="Fractals" class="img-responsive" style="width: 400px; margin: auto">
                     <br>              
-                    <button id="short" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Short Video</button>
-                    <button id="long" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Long Video</button> 
-                    <button id="tree" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> No Movie</button>                                         
+                    <button id="short" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Short Lesson (3 minutes)</button>
+                    <button id="long" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> "Deep Dive" Lesson (8 minutes)</button> 
+                    <button id="tree" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Fractal Tree (No Lesson)</button>                                         
                 </div>
             </div>
             <div class="row" id="presentation">
@@ -316,6 +316,7 @@
 
                 // load the tree sketch immediately - bypass video
                 main.sketch = new p5(tree, "sketchCanvas");
+                main.sketch.mainCanvas.position(0,50);
 
                 // fade in the tree adjustment Form
                 $('#treeForm').css('visibility','visible').show();
