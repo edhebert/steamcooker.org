@@ -3,7 +3,7 @@ var longScript = {
     init: function() {
 
     // define the popcorn video
-    var pop = Popcorn.smart("#videoClip", ["../assets/fractals-nopixels.webm","../assets/fractals-nopixels.mp4"]);
+    var pop = Popcorn.smart("#videoClip", ["../assets/fractals2.webm","../assets/fractals2.mp4"]);
     pop.autoplay(false);
 
 

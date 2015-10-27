@@ -1,0 +1,11 @@
+57.5 - "using math"
+
+59.0 - "and computers"
+
+80.2 - "a similar, but a smaller copy of itself"
+
+126.1 - "BOOM! (200 pixels)"
+
+131.8 - "it's 200 pixels long" (flash the 200 pixels line in the function)
+
+ 
