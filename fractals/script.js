@@ -306,7 +306,6 @@ var script = {
     pop.code({
       start: 305 ,
       onStart: function( options ) {
-        // show a recursive image background
         $('#module').css({'background-image': 'none'});
         $('#sketchCanvas').show();
         $('#recursion').fadeOut();

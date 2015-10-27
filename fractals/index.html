@@ -98,7 +98,7 @@
                 </div>
 
                 <div class="col-sm-4 col-sm-pull-8 sidebar">
-                    <div class="panel panel-default" id="fractaltitle">
+                    <div class="panel panel-warning" id="fractaltitle">
                         <div class="panel-heading">
                             <h3 class="panel-title">Fractal Geometry</h3>
                         </div>
@@ -149,7 +149,10 @@
                             <h3 class="panel-title">Deterministic Function</h3>
                         </div>
                         <div class="panel-body">
-                            <div>Returns the same results each time its given the same information. We provide the branch angle, number of branches, and color, and it draws the tree exactly the same way each time. </div>
+                            <div>
+                                <div>Returns the <em><strong>same results each time</strong></em> its given the same information.</div><br>
+                                <div>We provide the branch angle, number of branches, and color, and it draws the tree exactly the same way each time.</div>
+                            </div>
                         </div>                      
                     </div>
 
@@ -158,7 +161,10 @@
                             <h3 class="panel-title">Stochastic Function</h3>
                         </div>
                         <div class="panel-body">
-                            <div>Returns its results based on probability and randomness. This function considers a range of branch angles, number of branches, and colors, and it draws the tree a new way each time. </div>
+                            <div>
+                                <div>Returns its <em><strong>results based on probability and randomness</strong></em>.</div><br>
+                                <div>This function considers a range of branch angles, number of branches, and colors, and it draws the tree a new way each time.</div> 
+                            </div>
                         </div>                      
                     </div>
 
@@ -181,7 +187,7 @@
                                 <input type="range" id="trunk" min="5" max="30" value="10">          
                             </div>
                             <div class="form-group">
-                                <label for="branchSize">Final Branch Length: <span id="branchSzNum"></span> pixels</label><br>
+                                <label for="branchSize">Loop Exit Condition: <span id="branchSzNum"></span> pixels</label><br>
                                 <input type="range" id="branchSize" min="5" max="120" value="120">                           
                             </div>
                         </form>
@@ -317,9 +323,12 @@
 
             // load the proper script or sketch based on user selection
             $('#short').click(function() {
+                var btn = $(this);
+                btn.button('loading');
                 script = shortScript;
                 main.init();
                 main.playVideo();
+                btn.button('reset');
             });
  
             $('#long').click(function() {

@@ -72,7 +72,7 @@ var shortScript = {
     });
 
 
-     // fractal definition
+    // fractal definition
     pop.code({
       start: 38.0 ,
       onStart: function( options ) {

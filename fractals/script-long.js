@@ -38,7 +38,7 @@ var longScript = {
     // Snowflake
 
     pop.code({
-      start: 5.267798 ,
+      start: 5.167798 ,
       onStart: function( options ) {
 
         main.sketch = new p5(snowflake, "sketchCanvas");
@@ -49,7 +49,7 @@ var longScript = {
 
     // random flake # 1
     pop.code({
-      start: 14.851659 ,
+      start: 14.71659 ,
       onStart: function( options ) {
         main.sketch.drawSnowflake(main.sketch.width/2, main.sketch.height/2, main.sketch.random(125,175));
       }
@@ -57,7 +57,7 @@ var longScript = {
 
     // random flake # 2
     pop.code({
-      start: 16.133822 ,
+      start: 16.0 ,
       onStart: function( options ) {
         main.sketch.drawSnowflake(main.sketch.width/2, main.sketch.height/2, main.sketch.random(125,175));
       }
@@ -71,10 +71,9 @@ var longScript = {
       }
     });
 
-
      // fractal definition
     pop.code({
-      start: 38.0 ,
+      start: 37.5 ,
       onStart: function( options ) {
 
         // remove old snowflake sketch
@@ -89,7 +88,7 @@ var longScript = {
 
     // clouds
     pop.code({
-      start: 47.299201 ,
+      start: 47 ,
       onStart: function( options ) {
 
         // hide sidebar copy
@@ -119,6 +118,10 @@ var longScript = {
     pop.code({
       start: 59.5 ,
       onStart: function( options ) {
+
+        // hide sidebar copy
+        $('#fractaltitle').hide();
+
         $('#module').css({
           'background-image': 'url(../img/logo.png)',
           'background-repeat': 'no-repeat',
@@ -127,6 +130,7 @@ var longScript = {
         });
       }
     });
+
 
     // Tree
 
@@ -148,7 +152,7 @@ var longScript = {
         // allow mouse to control branch angle
         mouseAngle = true;
 
-        main.sketch.mainCanvas.position(-250,50);
+        main.sketch.mainCanvas.position(-150,50);
 
         // set the initial branchSize value
         $('#branchSize').val(5);
@@ -171,7 +175,7 @@ var longScript = {
 
     // begin displaying pseudocode
     pop.code({
-      start: 95.484 ,
+      start: 95.0 ,
       onStart: function( options ) {
         $('#pseudocode').fadeIn();       
       }
@@ -179,7 +183,7 @@ var longScript = {
 
     // show first line of code, length = 200px
     pop.code({
-      start: 120.911539 ,
+      start: 120.0 ,
       onStart: function( options ) {
         $('#line1, #line2, #line3').fadeIn();       
       }
@@ -190,7 +194,7 @@ var longScript = {
     // build the tree from its trunk root ("200 px" in the script)
 
     pop.code({
-      start: 141.545849 ,
+      start: 125.3 ,
       onStart: function( options ) {
 
         // disable mouse control of angle
@@ -204,7 +208,7 @@ var longScript = {
 
     // fade in the "base case"
     pop.code({
-      start: 175 ,
+      start: 159 ,
       onStart: function( options ) {
         $('#line4').fadeIn();       
       }
@@ -212,7 +216,7 @@ var longScript = {
 
     // blink it
     pop.code({
-      start: 190 ,
+      start: 170 ,
       onStart: function( options ) {
         $('#line4').addClass('blinkme');       
       }
@@ -220,21 +224,21 @@ var longScript = {
 
 
     pop.code({
-      start: 197 ,
+      start: 182 ,
       onStart: function( options ) {
         $('#line4').removeClass('blinkme');       
       }
     });
 
     pop.code({
-      start: 223.605365 ,
+      start: 207 ,
       onStart: function( options ) {
         $('#line5').fadeIn();       
       }
     });
 
     pop.code({
-      start: 229.909052 ,
+      start: 214.109052 ,
       onStart: function( options ) {
         $('#line6, #line7, #line8, #line9').fadeIn();       
       }
@@ -243,90 +247,120 @@ var longScript = {
     // blink left and right branch draw function text
 
     pop.code({
-      start: 233 ,
+      start: 217 ,
       onStart: function( options ) {
-        $('#line6').addClass('blinkme');       
+        $('#line6, #line7').addClass('blinkme');       
       }
     }); 
 
 
     pop.code({
-      start: 236 ,
+      start: 220.5 ,
       onStart: function( options ) {
-        $('#line6').removeClass('blinkme');   
-        $('#line8').addClass('blinkme');     
+        $('#line6, #line7').removeClass('blinkme');   
+        $('#line8, #line9').addClass('blinkme');     
       }
     }); 
 
     pop.code({
-      start: 239 ,
+      start: 224.5 ,
       onStart: function( options ) { 
-        $('#line8').removeClass('blinkme');     
+        $('#line8, #line9').removeClass('blinkme');     
       }
     }); 
 
-    pop.code({
-      start: 241.55 ,
-      onStart: function( options ) {
 
-        // iterate one step ("100 px" in the script)
+    // iterate one step ("100 px" in the script)
+    pop.code({
+      start: 225.9 ,
+      onStart: function( options ) {
         $('#branchSize').val(105);
       }
     });
 
     pop.code({
-      start: 273 ,
+      start: 258 ,
       onStart: function( options ) { 
         $('#line2,#line7,#line9').addClass('blinkme');     
       }
     }); 
 
     pop.code({
-      start: 280 ,
+      start: 265 ,
       onStart: function( options ) { 
         $('#line2,#line7,#line9').removeClass('blinkme');     
       }
     }); 
 
+    // recursion
     pop.code({
-      start: 291 ,
+      start: 275.2 ,
       onStart: function( options ) {
         // show a recursive image background
-        $('#module').css({'background-image': 'url(../img/recursion.jpg)'});
+        $('#sketchCanvas').hide();
+        $('#module').css({
+          'background-image': 'url(../img/recursion.jpg)',
+          'background-size' : 'cover'
+        });
+        $('#recursion').fadeIn();
       }
     });
 
-
     pop.code({
-      start: 349.7 ,
+      start: 290 ,
       onStart: function( options ) {
+        $('#module').css({'background-image': 'none'});
+        $('#sketchCanvas').show();
+        $('#recursion').fadeOut();
+      }
+    });
 
-        // iterate one step ("50 px in the script")
+    // iterate one step ("50 px in the script")
+    pop.code({
+      start: 334.7 ,
+      onStart: function( options ) {
         $('#branchSize').val(65);
       }
     });
 
+    // iterate one step ("25 px")
     pop.code({
-      start: 382.370073 ,
+      start: 367 ,
       onStart: function( options ) {
-
-        // iterate one step ("25 px")
         $('#branchSize').val(45);
       }
     });
 
+    // iterate one step ("12.5")
     pop.code({
-      start: 383.275575 ,
+      start: 368.275575 ,
       onStart: function( options ) {
-
-        // iterate one step ("12.5")
         $('#branchSize').val(25);
+      }
+    });
+
+
+    // deterministic function defined
+    pop.code({
+      start: 395  ,
+      onStart: function( options ) {
+        $('#pseudocode').hide(); 
+        $('#deterministic').fadeIn();
+      }
+    });
+
+
+    // stochastic function defined
+    pop.code({
+      start: 410.2  ,
+      onStart: function( options ) {
+        $('#stochastic').fadeIn();
       }
     });
 
     // stochastic tree #1
     pop.code({
-      start: 432.206697  ,
+      start: 416  ,
       onStart: function( options ) {
 
         main.sketch.isRandom = true;
@@ -336,7 +370,7 @@ var longScript = {
 
     // // stochastic tree #2
     pop.code({
-      start: 433.9  ,
+      start: 417.7  ,
       onStart: function( options ) {
 
         main.sketch.loop();
@@ -346,7 +380,7 @@ var longScript = {
 
     // // stochastic tree #3
     pop.code({
-      start: 435.09533  ,
+      start: 418.8  ,
       onStart: function( options ) {
 
         main.sketch.loop();
@@ -359,9 +393,13 @@ var longScript = {
 
     // Show controls on the screen
     pop.code({
-      start: 457.55 ,
+      start: 441.8 ,
       onStart: function( options ) {
    
+        // hide the function definitions
+        $('#stochastic').hide();
+        $('#deterministic').hide();
+
         // toggle the random state
         main.sketch.isRandom = false;
         $('#isRandom').bootstrapSwitch('state', false);
@@ -379,7 +417,7 @@ var longScript = {
 
     // toggle the stochastic tree button on and off
     pop.code({
-      start: 466.5 ,
+      start: 450.5 ,
       onStart: function( options ) {
    
        $('#isRandom').bootstrapSwitch('state', true);
@@ -387,7 +425,7 @@ var longScript = {
     });
 
     pop.code({
-      start: 469.5 ,
+      start: 454.5 ,
       onStart: function( options ) {
    
        $('#isRandom').bootstrapSwitch('state', false);
@@ -396,10 +434,11 @@ var longScript = {
 
 
     pop.code({
-      start: 493.952243 ,
+      start: 478 ,
       onStart: function( options ) { 
         // fade out the video
         $('#videoCanvas').fadeOut();
+        $('#pause').fadeOut();
       }
     });
 

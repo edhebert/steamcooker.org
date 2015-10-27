@@ -82,7 +82,7 @@ var main = {
       main.playVideo();
     });
     
-    $("#begin").button('loading');
+    // $("#short,#long,#tree").button('loading');
 
     // Pause on click
 
@@ -139,7 +139,7 @@ var main = {
 
       // Set button state
 
-      $("#begin").button('reset');
+      // $("#short, #long, #tree").button('reset');
   },
 
   // Start Video
