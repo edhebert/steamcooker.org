@@ -51,7 +51,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#module">Fractal Lesson</a>
+                        <a href="#module">Modules</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#info">Info for Grown-Ups</a>
@@ -73,12 +73,8 @@
                 <div class="col-sm-12 text-center">
                     <h2>Fractals</h2>
                     <h3>Mathematics in Nature</h3>
-                    <hr class="star-primary">  
-                    <img src="../img/module/fractals2.svg" alt="Fractals" class="img-responsive" style="width: 400px; margin: auto">
-                    <br>              
-                    <button id="short" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Short Lesson (3 minutes)</button>
-                    <button id="long" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> "Deep Dive" Lesson (8 minutes)</button> 
-                    <button id="tree" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Fractal Tree (No Lesson)</button>                                         
+                    <hr class="star-primary">                
+                    <button id="begin" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Click to Begin</button>
                 </div>
             </div>
             <div class="row" id="presentation">
@@ -272,8 +268,7 @@
     <script src="../js/vendor/seriously.js"></script>
     <script src="../js/vendor/effects/seriously.chroma.js"></script>
 
-    <script src="script-short.js"></script>
-    <script src="script-long.js"></script>
+    <script src="script.js"></script>
     <script src="main.js"></script>
 
     <!-- lesson scripts -->
@@ -284,47 +279,20 @@
 
         $(document).ready( function () {
 
-            // screen for compaitibility with WebGL, etc.
-            if (Seriously.incompatible()) {
-              $("#errorWebGL").show();
-              $("#errorFeature").hide();
-              $("#error").fadeIn();
-              $("#main").hide();
-            } else if (!Modernizr.webaudio || !Modernizr.csstransforms) {
-              $("#errorWebGL").hide();
-              $("#errorFeature").show();
-              $("#error").fadeIn();
-              $("#main").hide();
-            } 
+        if (Seriously.incompatible()) {
+          $("#errorWebGL").show();
+          $("#errorFeature").hide();
+          $("#error").fadeIn();
+          $("#main").hide();
+        } else if (!Modernizr.webaudio || !Modernizr.csstransforms) {
+          $("#errorWebGL").hide();
+          $("#errorFeature").show();
+          $("#error").fadeIn();
+          $("#main").hide();
+        } else {
+          main.init();
+        }
 
-            // load the proper script or sketch based on user selection
-            $('#short').click(function() {
-                script = shortScript;
-                main.init();
-                main.playVideo();
-            });
- 
-            $('#long').click(function() {
-                script = longScript;
-                main.init();
-                main.playVideo();
-            });
-
-            $('#tree').click(function() {
-                // set minimum branchSize to 5px
-                $('#branchSize').val(5);
-
-                // load the tree sketch immediately - bypass video
-                main.sketch = new p5(tree, "sketchCanvas");
-                main.sketch.mainCanvas.position(0,50);
-
-                // fade in the tree adjustment Form
-                $('#treeForm').css('visibility','visible').show();
-
-                // fade in the presentation
-                $("#welcome").hide();
-                $('#presentation').fadeIn();
-            });
         });
 
     </script>
