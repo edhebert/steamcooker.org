@@ -44,12 +44,12 @@ var script = {
 
     // clouds
     pop.code({
-      start: 2.0 ,
+      start: 2.65 ,
       onStart: function( options ) {
 
         // hide sidebar copy
         // $('#fractaltitle').hide();
-      $('#presentation').prepend('<img id="spark" src="../img/spark.png" />')
+      $('#spark').prepend('<img id="spark" src="../img/spark.png" />')
 
 
         //$('#module').css({'background-image': 'url(../img/spark.png)'});

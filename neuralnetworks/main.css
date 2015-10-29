@@ -73,7 +73,14 @@ h1, h2 {
 
 #spark {
   position: absolute;
-  height: 50px;
+  float: left;
+  bottom: 0;
+  right: 50%;
+  z-index: 1000;
+  height: auto;
+  width: auto;
+  max-height: 80%;
+  
 }
 
 /**
