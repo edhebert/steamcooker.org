@@ -42,25 +42,22 @@ var script = {
 
     // Images of Clouds, Mountains, and Trees
 
-    // clouds
+    // spark
     pop.code({
       start: 2.65 ,
       onStart: function( options ) {
-
-        // hide sidebar copy
-        // $('#fractaltitle').hide();
-      $('#spark').prepend('<img id="spark" src="../img/spark.png" />')
-
-
-        //$('#module').css({'background-image': 'url(../img/spark.png)'});
+        $('#spark').prepend('<img id="spark" src="../img/spark.png" />')
       }
     });
 
-    // mountains
+    // math
     pop.code({
-      start: 49.008596 ,
+      start: 20.0 ,
       onStart: function( options ) {
-        $('#module').css({'background-image': 'url(../img/fractals-mountains.jpg)'});
+        $( "#spark" ).click(function() {
+          $("#spark img:last-child").remove()
+          $('#spark').prepend('<img id="math" src="../img/math.png" />')
+        });
       }
     });
 
