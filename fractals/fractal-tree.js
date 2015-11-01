@@ -179,11 +179,9 @@ var tree = function(sketch) {
         });
         // save the Canvas as a JPEG image when Save button clicked
         $('#save').click(function() {
-            // position the logo (for view when printed)
-            sketch.image(sketch.logo, 600, 400);
+            // position the logo on canvas (for view when printed)
+            var SCLogo = sketch.image(sketch.logo, 650, 420);
             // save the file to disk
             sketch.saveCanvas('myTree', 'jpg');
-            // hide the logo again
-            sketch.logo.hide();
         });
     }
