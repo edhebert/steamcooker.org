@@ -179,18 +179,11 @@ var tree = function(sketch) {
         });
         // save the Canvas as a JPEG image when Save button clicked
         $('#save').click(function() {
-            // position the logo (for when printed)
+            // position the logo (for view when printed)
             sketch.image(sketch.logo, 600, 400);
-            // disable loop (so that logo isn't painted over while printing)
-            sketch.noLoop();
             // save the file to disk
             sketch.saveCanvas('myTree', 'jpg');
-            // resume game loop
-            if(!isRandom) {
-                sketch.loop();
-            }
+            // hide the logo again
             sketch.logo.hide();
         });
     }
-    // instantiate the sketch and append it to the DOM within id "canvas" (now handled in script.js)
-    // var mySketch = new p5(tree, "canvas");
