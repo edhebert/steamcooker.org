@@ -186,7 +186,10 @@ var tree = function(sketch) {
             // save the file to disk
             sketch.saveCanvas('myTree', 'jpg');
             // resume game loop
-            sketch.loop();
+            if(!isRandom) {
+                sketch.loop();
+            }
+            sketch.logo.hide();
         });
     }
     // instantiate the sketch and append it to the DOM within id "canvas" (now handled in script.js)
