@@ -24,7 +24,8 @@ var tree = function(sketch) {
         autoAngle = 0;
         // default tree building logic to nonRandom
         sketch.isRandom = false;
-        // define canvas size and all global variables
+
+
         sketch.setup = function() {
                 // create a new html5 canvas
                 sketch.mainCanvas = sketch.createCanvas(800, 500);
@@ -38,6 +39,8 @@ var tree = function(sketch) {
                 // initial number of numBranches to draw
                 numBranches = $("#branches").val();
                 $("#branchNum").text(numBranches);
+                // logo image (to show when saving the tree image)
+                sketch.logo = sketch.loadImage("../img/logo-url.svg");
             }
             // continuous game loop that runs indefinitely
         sketch.draw = function() {
@@ -173,6 +176,17 @@ var tree = function(sketch) {
                 }
             },
             'labelWidth': '150'
+        });
+        // save the Canvas as a JPEG image when Save button clicked
+        $('#save').click(function() {
+            // position the logo (for when printed)
+            sketch.image(sketch.logo, 600, 400);
+            // disable loop (so that logo isn't painted over while printing)
+            sketch.noLoop();
+            // save the file to disk
+            sketch.saveCanvas('myTree', 'jpg');
+            // resume game loop
+            sketch.loop();
         });
     }
     // instantiate the sketch and append it to the DOM within id "canvas" (now handled in script.js)
