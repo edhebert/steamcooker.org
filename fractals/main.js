@@ -137,9 +137,8 @@ var main = {
       target.source = chroma;
       seriously.go();
 
-      // Set button state
+      script.popcorn.autoplay(true);
 
-      // $("#short, #long, #tree").button('reset');
   },
 
   // Start Video
@@ -152,7 +151,6 @@ var main = {
     $("#welcome").hide();
     $('#presentation').fadeIn();
     $("#videoCanvas").fadeIn(); 
-    // $("#p5").fadeIn(); 
     $("#pause").fadeIn();
 
     var time = main.getStartTime();
