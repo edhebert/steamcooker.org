@@ -88,7 +88,7 @@
                             <div id="pause">
                                 <i id="pauseButton" class="fa fa-pause"></i>
                             </div>
-                            <div id="loading"><h3>Hold up a second, loading some good stuff!</h3></div>
+
                             <div id="videoClip"></div>
                             <div id="sketchCanvas"></div>
                             <div id="sketchOverlay"></div>
@@ -218,8 +218,9 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus fugit quae enim nobis alias facilis quas quasi, provident vero fuga laudantium animi reprehenderit harum sequi accusantium voluptas illum debitis placeat!</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam ea, temporibus velit dicta asperiores eaque, repellendus distinctio quos vel id quisquam officia, quibusdam dignissimos. Aspernatur quia reprehenderit qui ex ratione.</p>
+                    <p>Math is all around us, and this lesson presents some new and unexpected places where we can find it. But this lesson just scratches the surface. Let's continue the discussion from here!</p>
+                    <p>Where else might math and nature cross paths? Look for places or objects where different geometries are revealed. Compare fractals typical <a href="https://www.youtube.com/watch?v=_KUGLOiZyK8">Euclidean geometries</a> in structures such as squares &amp; cubes, circles &amp; speheres, etc. against the more fractal based geometries we find in nature.</p>
+                    <p>We talked about a fractal tree, but what are some other examples of <a href="http://www.wired.com/2010/09/fractal-patterns-in-nature/">fractals in nature</a>? Remember to look for <em>self-similarity</em>. How about the patterns in a leaf? They almost look like a tree too! Coincidence? hm.</p>
                 </div>
             </div>
         </div>
@@ -329,7 +330,6 @@
 
             // load the proper script or sketch based on user selection
             $('#short').click(function() {
-                $('#loading').show();
                 var btn = $(this);
                 btn.button('loading');
                 script = shortScript;
@@ -339,7 +339,6 @@
             });
  
             $('#long').click(function() {
-                $('#loading').show();
                 script = longScript;
                 main.init();
                 main.playVideo();
