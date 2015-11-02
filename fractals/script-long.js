@@ -35,7 +35,7 @@ var longScript = {
         pop.code({
             start: 0,
             onStart: function(options) {
-                $('#treeForm').fadeOut();
+                $('#loading').hide();
             }
         });
         // Snowflake

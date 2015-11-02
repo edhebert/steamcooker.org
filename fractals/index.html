@@ -88,7 +88,7 @@
                             <div id="pause">
                                 <i id="pauseButton" class="fa fa-pause"></i>
                             </div>
-
+                            <div id="loading"><h3>Hold up a second, loading some good stuff!</h3></div>
                             <div id="videoClip"></div>
                             <div id="sketchCanvas"></div>
                             <div id="sketchOverlay"></div>
@@ -329,6 +329,7 @@
 
             // load the proper script or sketch based on user selection
             $('#short').click(function() {
+                $('#loading').show();
                 var btn = $(this);
                 btn.button('loading');
                 script = shortScript;
@@ -338,6 +339,7 @@
             });
  
             $('#long').click(function() {
+                $('#loading').show();
                 script = longScript;
                 main.init();
                 main.playVideo();

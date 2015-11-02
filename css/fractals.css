@@ -122,6 +122,15 @@ button {
     transform-origin: bottom left;
 }
 
+/*display loading message until assets load */
+#loading {
+  position: absolute;
+  top:250px;
+  left: -250px;
+  z-index: 300;
+  display: none;
+}
+
 /* begin button */
 
 #begin {
