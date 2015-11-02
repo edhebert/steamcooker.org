@@ -23,6 +23,7 @@
     <!-- <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"> -->
 
     <link href="dist/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="temp.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -55,7 +56,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#module">Modules</a>
+                        <a href="#module">Lessons</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#info">Info for Grown-Ups</a>
@@ -71,7 +72,7 @@
     </nav>
 
     <!-- Header -->
-    <header>        
+<!--     <header>        
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -84,20 +85,20 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header> -->
 
     <!-- Module Grid Section -->
     <section id="module">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Modules</h2>
+                    <h2>Lessons</h2>
                     <hr class="star-primary">
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4 module-item">
-                    <a href="#moduleModal1" class="module-link" data-toggle="modal">
+                    <a href="fractals/" class="module-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <h3>Fractals</h3>
@@ -109,7 +110,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 module-item">
-                    <a href="#moduleModal2" class="module-link" data-toggle="modal">
+                    <a href="#flocking" class="module-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <h3>Birds of a Feather</h3>
@@ -121,7 +122,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 module-item">
-                    <a href="#moduleModal3" class="module-link" data-toggle="modal">
+                    <a href="#newton" class="module-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <h3>Wrecking Balls</h3>
@@ -140,15 +141,23 @@
     <section class="success" id="info">
         <div class="container">
             <div class="row">
+                <img class="img-responsive" src="img/logo.svg" alt="Cooking up ideas!" style="width:300px; margin: 0 auto">
                 <div class="col-lg-12 text-center">
-                    <h2>Info for Grown Ups</h2>
+                    <h2>Cooking up Curiosity!</h2>
                     <hr class="star-light">
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus fugit quae enim nobis alias facilis quas quasi, provident vero fuga laudantium animi reprehenderit harum sequi accusantium voluptas illum debitis placeat!</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam ea, temporibus velit dicta asperiores eaque, repellendus distinctio quos vel id quisquam officia, quibusdam dignissimos. Aspernatur quia reprehenderit qui ex ratione.</p>
+                    <p>Sciene. Technology. Engineering. Math. These pursuits are often associated with innovation, progress, and prosperity. But to many kids, these fields can also seem intimidating, inaccessible, or even downright 'boring'.</p>
+                    
+                    <p>Hey, what about Art and Design? How do those more traditionally creative, 'left brained' pursuits work together with the more traditional sciences? How can a child with more artistic motivations recognize the value of science and technology in their own creative education? How can a future scientist recognize the value of creativity and imagination? What if we taught it all together, and let the left and right brains amaze and inspire each other?</p>
+                    
+                    <p>Such questions are the motivation behind <a href="http://stemtosteam.org/">STEM to STEAM</a>, an initiative championed by the Rhode Island School of Design, and an educational movement rapidly being adopted by <a href="http://map.stemtosteam.org/">educators across the globe</a>.</p>
+                    
+                    <p> The lessons in STEAM Cooker are designed to introduce this cool stuff to kids. The lessons here use interactive videos and web illustrations to minimize the difficulty and geekiness and embrace creative thought across technical and artistic fields. They're equal parts 'artsy' and 'techie', and 100% fun!</p>
+                    <p>Make no mistake - STEAM Cooker isn't going easy on STEM! We'll tackle some pretty advanced topics, but in unintimidating ways that even young grade schoolers can enjoy. Short lessons and interactive pieces engage new students with real-world applications of STEAM learning. More curious students can venture into 'deep dive' explorations of the same topics. Teachers and caregivers can enjoy learning together with their kids, and each lesson has content to help grown-ups anticipate questions and continue the discussion once the lesson is complete. </p>
+                    <p>Now let's stir up our imagination, sprinkle in our curiosity, and cook up some fun!</p>
                 </div>
             </div>
         </div>
@@ -179,7 +188,7 @@
                 <div class="row">
                     <div class="footer-col col-md-4 col-md-offset-2">
                         <h3>Science and Art, yay!</h3>
-                        <p>STEAM Cooker is a place where technology, design, art, science, and creativity live in harmony.</p>
+                        <p>STEAM Cooker is a place where technology, design, art, science, mathematics and creativity live in harmony.</p>
                     </div>                
                     <div class="footer-col col-md-4">
                         <h3>Shout Out</h3>
@@ -217,7 +226,7 @@
     </div>
 
     <!-- Module Modals -->
-    <div class="module-modal modal fade" id="moduleModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="module-modal modal fade" id="flocking" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -229,33 +238,10 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Fractals: Nature's Math</h2>
-                            <hr class="star-primary">
-                            <img src="img/module/fractals.svg" class="img-responsive img-centered" alt="">
-                            <p>Module code here!</p>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="module-modal modal fade" id="moduleModal2" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Birds of a Feather: Object Oriented Programming</h2>
+                            <h2>Birds of a Feather<br>Coming Soon!</h2>
                             <hr class="star-primary">
                             <img src="img/module/birds.svg" class="img-responsive img-centered" alt="">
-                            <p>Module code here!</p>
+                            <p>Get ready to fly - this lesson is coming soon!</p>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
@@ -263,7 +249,7 @@
             </div>
         </div>
     </div>
-    <div class="module-modal modal fade" id="moduleModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="module-modal modal fade" id="newton" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -275,10 +261,10 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Wrecking Balls</h2>
+                            <h2>Wrecking Balls<br>Coming Soon!</h2>
                             <hr class="star-primary">
                             <img src="img/module/cradle.svg" class="img-responsive img-centered" alt="">
-                            <p>Module code here!</p>
+                            <p>Strap on your hardhats - this lesson is coming soon!</p>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>

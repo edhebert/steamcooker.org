@@ -145,7 +145,49 @@ button {
     z-index: 200;
 }
 
-/* Code to "blink" tet when it's highlighted */
+
+#twoHundred, #oneHundred, #fifty, #twentyFive, #twelve, #six {
+  font-size: 14px;
+  font-weight: 700;
+  position: absolute;
+  color: #2c3e50;
+  background-color: white;
+  text-align: center;
+  z-index: 800;
+  display: none;
+}
+
+#twoHundred {
+  top: 450px;
+  left: 220px;
+}
+
+#oneHundred {
+  top: 310px;
+  left: 220px;
+}
+
+#fifty {
+  top: 220px;
+  left: 220px;
+}
+
+#twentyFive {
+  top: 175px;
+  left: 220px;
+}
+
+#twelve {
+  top: 130px;
+  left: 220px;
+}
+
+#six {
+  top: 80px;
+  left: 200px;
+}
+
+/* Code to "blink" text when it's highlighted */
 
 .blinkme {
   animation: blinker 1s linear infinite;
@@ -153,4 +195,17 @@ button {
 
 @keyframes blinker {  
   50% { color: orange; }
+}
+
+/*Code to blink a button*/
+
+.blinkbtn {
+  animation: blinkButton 1s linear infinite;
+}
+
+@keyframes blinkButton {  
+  50% { 
+    background-color: orange; 
+    border-color: orange;
+  }
 }

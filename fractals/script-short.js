@@ -84,7 +84,7 @@ var shortScript = {
             start: 47.299201,
             onStart: function(options) {
                 // hide sidebar copy
-                // $('#fractaltitle').hide();
+                $('#fractaltitle').hide();
                 $('#module').css({
                     'background-image': 'url(../img/fractals-clouds.jpg)'
                 });
@@ -113,7 +113,7 @@ var shortScript = {
             start: 59.5,
             onStart: function(options) {
                 // hide sidebar copy
-                $('#fractaltitle').hide();
+                // $('#fractaltitle').hide();
                 $('#module').css({
                     'background-image': 'url(../img/logo.png)',
                     'background-repeat': 'no-repeat',
@@ -237,6 +237,22 @@ var shortScript = {
                 $('#isRandom').bootstrapSwitch('state', false);
             }
         });
+        // highlight the 'save tree' button
+        pop.code({
+            start: 175,
+            onStart: function(options) {
+                // start blinking the $('#save') button
+                $('#save').addClass('blinkbtn');
+            }
+        });
+        pop.code({
+            start: 179,
+            onStart: function(options) {
+                // stop blinking the $('#save') button
+                $('#save').removeClass('blinkbtn');
+            }
+        });  
+
         pop.code({
             start: 186.2,
             onStart: function(options) {

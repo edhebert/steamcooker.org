@@ -83,7 +83,7 @@ var longScript = {
             start: 47,
             onStart: function(options) {
                 // hide sidebar copy
-                // $('#fractaltitle').hide();
+                $('#fractaltitle').hide();
                 $('#module').css({
                     'background-image': 'url(../img/fractals-clouds.jpg)'
                 });
@@ -111,8 +111,6 @@ var longScript = {
         pop.code({
             start: 59.5,
             onStart: function(options) {
-                // hide sidebar copy
-                $('#fractaltitle').hide();
                 $('#module').css({
                     'background-image': 'url(../img/logo.png)',
                     'background-repeat': 'no-repeat',
@@ -172,6 +170,7 @@ var longScript = {
                 mouseAngle = false;
                 // show tree again
                 hideTree = false;
+                $('#twoHundred').fadeIn();
             }
         });
         // fade in the "base case"
@@ -231,6 +230,7 @@ var longScript = {
             start: 225.9,
             onStart: function(options) {
                 $('#branchSize').val(105);
+                $('#oneHundred').fadeIn();
             }
         });
         pop.code({
@@ -250,7 +250,9 @@ var longScript = {
             start: 275.2,
             onStart: function(options) {
                 // show a recursive image background
+                $('#pseudocode').hide();
                 $('#sketchCanvas').hide();
+                $('#twoHundred, #oneHundred').hide();
                 $('#module').css({
                     'background-image': 'url(../img/recursion.jpg)',
                     'background-size': 'cover'
@@ -265,7 +267,9 @@ var longScript = {
                     'background-image': 'none'
                 });
                 $('#sketchCanvas').show();
-                $('#recursion').fadeOut();
+                $('#pseudocode').show();
+                $('#twoHundred, #oneHundred').show();
+                $('#recursion').hide();
             }
         });
         // iterate one step ("50 px in the script")
@@ -273,22 +277,41 @@ var longScript = {
             start: 334.7,
             onStart: function(options) {
                 $('#branchSize').val(65);
+                $('#fifty').fadeIn();
             }
         });
         // iterate one step ("25 px")
         pop.code({
-            start: 367,
+            start: 366.3,
             onStart: function(options) {
                 $('#branchSize').val(45);
+                $('#twentyFive').fadeIn();
             }
         });
         // iterate one step ("12.5")
         pop.code({
-            start: 368.275575,
+            start: 367.4,
             onStart: function(options) {
                 $('#branchSize').val(25);
+                $('#twelve').fadeIn();
             }
         });
+        // hit base case, stop drawing
+        pop.code({
+            start: 368.2,
+            onStart: function(options) {
+                $('#six').fadeIn();
+                $('#six').addClass('blinkme');
+            }
+        });        
+        pop.code({
+            start: 371,
+            onStart: function(options) {
+                $('#six').removeClass('blinkme');
+            }
+        });   
+
+
         // deterministic function defined
         pop.code({
             start: 395,
@@ -308,6 +331,7 @@ var longScript = {
         pop.code({
             start: 416,
             onStart: function(options) {
+                $('#twoHundred, #oneHundred, #fifty, #twentyFive, #twelve, #six').hide();
                 main.sketch.isRandom = true;
                 main.sketch.noLoop();
             }
@@ -375,6 +399,21 @@ var longScript = {
                 $('#isRandom').bootstrapSwitch('state', false);
             }
         });
+        // highlight the 'save tree' button
+        pop.code({
+            start: 466,
+            onStart: function(options) {
+                // start blinking the $('#save') button
+                $('#save').addClass('blinkbtn');
+            }
+        });
+        pop.code({
+            start: 470,
+            onStart: function(options) {
+                // stop blinking the $('#save') button
+                $('#save').removeClass('blinkbtn');
+            }
+        });       
         pop.code({
             start: 478,
             onStart: function(options) {
