@@ -368,7 +368,7 @@ var longScript = {
                 // hide our pseudocode
                 $('#pseudocode').hide();
                 // fade in the tree adjustment Form
-                $('#treeForm').css('visibility', 'visible').hide().fadeIn();
+                $('#treeForm').fadeIn();
             }
         });
         // Slide the branch angle slider automatically
