@@ -89,7 +89,10 @@ button {
 }
 
 
-
+/*hide pseudocode submenu bullet*/
+.sub {
+  list-style: none;
+}
 
 /**
  * Sketch
