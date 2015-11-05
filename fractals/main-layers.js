@@ -136,8 +136,6 @@ var main = {
       target.source = chroma;
       seriously.go();
 
-      script.popcorn.autoplay(true);
-
   },
 
   // Start Video

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Fractals - Under the Hood | STEAM Cooker</title>
+
+    <!-- all LESS/CSS combined and minified with gulp.js -->
+    <!-- <link href="../dist/bootstrap.css" rel="stylesheet"> -->
+    
+    <!-- CSS specific to the Fractal Lesson -->
+    <!-- <link href="../css/bootstrap-switch.min.css" rel="stylesheet">  -->
+    <!-- <link href="../css/fractals.css" rel="stylesheet"> -->
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <style>
+
+        .perspective {
+          -webkit-perspective: 5000px;
+          -moz-perspective: 5000px;
+          perspective: 5000px;
+        }
+
+        .three-d {
+          text-align:center;
+          -webkit-transform-style:preserve-3d;
+          -moz-transform-style:preserve-3d;
+          transform-style:preserve-3d;
+        }
+
+        #videoCanvas {
+          -webkit-transform:translate3d(0, 0, 500px);
+          -moz-transform:translate3d(0, 0, 500px);
+          transform:translate3d(0, 0, 500px);
+          background-color: transparent;
+        }
+
+        #sketchCanvas {
+          -webkit-transform:translate3d(0,0, 300px);
+          -moz-transform:translate3d(0,0, 300px);
+          transform:translate3d(0,0, 300px);
+          background-color: #999;
+          opacity: 0.8;
+        }  
+
+        /*initially hide stuff */
+        #videoCanvas, #sketchCanvas, #videoClip, #bgText, #cText, #seekBar, #main {
+            display: none;
+        }
+
+        #main {
+            overflow: visible !important;
+        }
+
+
+    </style>
+    <script src="../js/vendor/modernizr.min.js"></script></head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+<!--     <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img class="img-responsive" src="../img/logo-words.svg" alt="STEAM Cooker logo"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                </ul>
+            </div>
+        </div>
+    </nav> -->
+    
+<!-- <section id="about">
+    <div style="margin-top: 50px" class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>How Does this work?</h2>
+                <h3>Making the STEAM Cooker Lessons</h3>
+                <hr class="star-primary">
+            </div>
+        </div>
+    </div>
+</section> -->
+
+  <div id="perspective" class="perspective">
+    <div class="three-d" id="rotator" style="-webkit-transform: rotateX(0 deg);">
+        <!-- Module Grid Section -->
+        <section id="module" style="padding: 0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div id="welcome"><button id="begin" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Click to Begin</button></div>
+                        <div id="bgText">Background div</div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-sm-9 col-sm-push-3 text-center">
+                            <div id="main">
+                                <div id="sketchCanvas"><span id="cText">HTML5 canvas (for JavaScript visuals)</span></div>
+                                <div id="sketchOverlay"></div>
+                                <canvas id="videoCanvas" width="960" height="720"></canvas>
+                            </div>                  
+                    </div>
+
+<!--                     <div class="col-sm-3 col-sm-pull-9">
+                   <div class="panel panel-warning" id="fractaltitle">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Fractal Geometry</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div>A type of math that helps us better understand or illustrate different properties in nature.</div><br>
+                            <div>Fractal objects are made by making similar copies of themselves over and over again.</div><br>
+                            <div>This property of fractals is called <em><strong>self-similarity</strong></em>.</div>
+                        </div>                      
+                    </div>
+
+                    <div class="panel panel-warning" id="pseudocode">
+                      <div class="panel-heading">
+                      <h3 class="panel-title">'Branch'</h3>
+                      <h3 class="panel-title">A Fractal Tree Recipe</h3>
+                      </div>
+                      <div class="panel-body">
+                        <div>A <em>function</em> &ndash; or recipe of instructions &ndash; to draw a tree on the screen using math.</div><br>
+                        <div>
+                            <span id="line1">Set <em><strong>length</strong></em> = 200 pixels</span>
+                            <br><br>
+                            <span id="line2"><em>function</em> Branch(<em><strong>length</strong></em>)</span>
+                        </div>
+                        <ul>
+                            <li id="line3">Draw a line that's <em><strong>length</strong></em> pixels long</li>
+                            <li id="line4">While <em><strong>length</strong></em> > 10 pixels, draw these steps:</li>
+                            <li class="sub">
+                                <ul>
+                                    <li id="line5">go to the top end of the branch</li>
+                                    <li id="line6">Turn to the left</li>
+                                    <li id="line7">Branch(<em><strong>length</strong></em> &divide; 2)</li>
+                                    <li id="line8">Turn to the right</li>
+                                    <li id="line9">Branch(<em><strong>length</strong></em> &divide; 2)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="panel panel-warning" id="recursion">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Recursion</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div>Recursion is the process of repeating items in a <em><strong>self-similar</strong></em> way.</div>
+                        </div>                      
+                    </div>
+
+                    <div class="panel panel-warning" id="deterministic">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Deterministic Function</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div>
+                                <div>Returns the <em><strong>same results each time</strong></em> its given the same information.</div><br>
+                                <div>We provide the branch angle, number of branches, and color, and it draws the tree exactly the same way each time.</div>
+                            </div>
+                        </div>                      
+                    </div>
+
+                    <div class="panel panel-warning" id="stochastic">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Stochastic Function</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div>
+                                <div>Returns its <em><strong>results based on probability and randomness</strong></em>.</div><br>
+                                <div>This function considers a range of branch angles, number of branches, and colors, and it draws the tree a new way each time.</div> 
+                            </div>
+                        </div>                      
+                    </div>      -->               
+
+<!--                         <div id="treeForm">
+
+                            <form>
+                                <div class="form-group">
+                                    <label for="angle">Angle: <span id="degNum"></span>&deg;</label><br>
+                                    <input type="range" id="angle" min="0" max="90" value="29">                              
+                                </div>
+                                <div class="form-group">
+                                    <label for="branches">Branches: <span id="branchNum"></span></label><br>
+                                    <input type="range" id="branches" min="2" max="4" value="2">                           
+                                </div>
+                                <div class="form-group">
+                                    <label for="color">Color: <span id="colorVal"></span></label><br>
+                                    <input type="range" id="color" min="0" max="255" value="123">                          
+                                </div>
+                                <div class="form-group">
+                                    <label for="trunk">Trunk Width: <span id="trunkNum"></span> pixels</label><br>
+                                    <input type="range" id="trunk" min="5" max="30" value="10">          
+                                </div>
+                                <div class="form-group">
+                                    <label for="branchSize">Final Branch Length: <span id="branchSzNum"></span> pixels</label><br>
+                                    <input type="range" id="branchSize" min="5" max="120" value="120">                           
+                                </div>
+                            </form>
+                            <div class="checkbox">
+                                <input type="checkbox" name="isRandom" id="isRandom">                           
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+  </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div id="videoClip" style="position:relative; margin: 150px auto;"></div>
+                    <div style="margin-bottom: 100px">
+                        <input type="range" id="seekBar" value="0">
+                        <div id="pause">
+                            <i id="pauseButton" class="fa fa-pause"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Footer -->
+<!--     <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4 col-md-offset-2">
+                        <h3>Science and Art, yay!</h3>
+                        <p>STEAM Cooker is a place where technology, design, art, science, and creativity live in harmony.</p>
+                    </div>                
+                    <div class="footer-col col-md-4">
+                        <h3>Shout Out</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; 2015, STEAM Cooker.<br><a href="mailto:info@steamcooker.org">info@steamcooker.org</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer> -->
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+
+    <!-- All JS is minified and concatenated using Gulp.JS -->
+    <script src="../dist/all.min.js"></script>
+
+    <!-- Fractal-specific code 
+    <script language="javascript" type="text/javascript"src="https://code.jquery.com/jquery-1.11.3.js"></script> -->
+    <!-- P5JS dependencies-->
+    <script type="text/javascript" src="../js/p5.min.js"></script>
+    <script type="text/javascript" src="../js/p5.dom.js"></script>
+
+
+    <script src="../js/vendor/popcorn.min.js"></script>
+
+    <script src="../js/vendor/seriously.js"></script>
+    <script src="../js/vendor/effects/seriously.chroma.js"></script>
+
+    <script src="script-layers.js"></script>
+    <script src="main-layers.js"></script>
+
+    <!-- lesson scripts -->
+    <script type="text/javascript" src="fractal-snowflake.js"></script>
+    <script type="text/javascript" src="fractal-tree.js"></script>
+
+    <script>
+
+        // Perspective
+        countForward = true;
+        count = 1;
+        isPaused = true;
+
+        $(document).ready( function () {
+          main.init();
+
+            var videos = document.getElementsByTagName("video");
+            var video = videos[0];
+            var seekBar = document.getElementById("seekBar");
+
+            // Event listener for the seek bar
+            seekBar.addEventListener("change", function() {
+              // Calculate the new time
+              var time = video.duration * (seekBar.value / 100);
+
+              // Update the video time
+              video.currentTime = time;
+            });
+
+            // Update the seek bar as the video plays
+            video.addEventListener("timeupdate", function() {
+              // Calculate the slider value
+              var value = (100 / video.duration) * video.currentTime;
+
+              // Update the slider value
+              seekBar.value = value;
+            });
+
+            // Pause the video when the slider handle is being dragged
+            seekBar.addEventListener("mousedown", function() {
+              video.pause();
+            });
+
+            // Play the video when the slider handle is dropped
+            seekBar.addEventListener("mouseup", function() {
+              video.play();
+            })
+
+            $('#begin').click(function() {
+                // toggle the rotation of the CSS when video Paused
+                interval = setInterval(function() {
+                    if (!isPaused) {
+                        rotator();
+                    } else {
+                        clearInterval(interval);
+                        console.log("cleared");
+                    }
+                }, 20);
+
+                // show elements
+                $('#videoCanvas, #sketchCanvas, #videoClip, #bgText, #cText, #seekBar, #main').css('display','block');
+                $('.three-d').css('background-color', '#eee');
+            });
+        });
+
+        function rotator() {
+            $('#rotator').get(0).style.transform = "rotateY("+count+"deg)";
+            
+            // set rotational constraints
+            if (count == 60 || count == 0) {
+                countForward = !countForward;
+            } 
+
+            //cycle  rotation back and forth when we hit the constraints
+            if (countForward)
+                count+=0.5;
+            else
+                count-=0.5;
+        }
+
+    </script>
+
+</body>
+
+</html>
