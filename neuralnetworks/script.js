@@ -46,7 +46,7 @@ var script = {
     pop.code({
       start: 2.65 ,
       onStart: function( options ) {
-        $('#spark').prepend('<img id="spark" src="../img/spark.png" />')
+        $('#spark').prepend('<img id="spark" src="../img/spark.png" />');
       }
     });
 
@@ -56,17 +56,37 @@ var script = {
       onStart: function( options ) {
         $( "#spark" ).click(function() {
           $("#spark img:last-child").remove()
-          $('#spark').prepend('<img id="math" src="../img/math.png" />')
+          $('#spark').prepend('<img id="math" src="../img/math.png" />');
         });
       }
     });
 
-    // trees
+    // perceptron hover 58.5
     pop.code({
-      start: 51.018562 ,
-      onStart: function( options ) {
-        $('#module').css({'background-image': 'url(../img/fractals-trees.jpg)'});
-      }
+      start: 4.5 ,
+      onStart: function( options ) 
+      {
+        // $("#spark").mouseenter(function () {
+        //   $("#spark img:last-child").remove();
+        //   $('#spark').prepend('<img id="math" src="../img/hover.png" />');
+        // });
+
+        // $("#spark").mouseleave(function () {
+        //   $("#spark img:last-child").remove();
+        //   $('#spark').prepend('<img id="math" src="../img/spark.png" />');
+        // });
+        $("#spark").hover(
+          function() 
+          {
+            $("#spark img:last-child").remove();
+            $('#spark').prepend('<img id="math" src="../img/hover.png" />');
+          },
+          function()
+          {
+            $("#spark img:last-child").remove();
+            $('#spark').prepend('<img id="math" src="../img/spark.png" />');
+          });
+        }
     });
 
     // imagination
