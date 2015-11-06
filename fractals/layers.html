@@ -71,7 +71,7 @@
           background-color: transparent;
         }
 
-        #sketchCanvas {
+        #sketchDiv { /*sketchCanvas*/
           -webkit-transform: translateZ(-200px);
           -moz-transform: translateZ(-200px);
           transform: translateZ(-200px);
@@ -81,7 +81,8 @@
           position: absolute;
           margin-top: 100px;
           height: 600px;
-          width: 66%;
+          width: 100%;
+          padding-left: 33%;
         }  
 
         /*initially hide stuff */
@@ -97,7 +98,7 @@
             margin: 0 auto;
         }
 
-        #sidebar {
+        #sidebar { /*sidebar*/
             width: 33%;
             position: absolute;
             top: 0;
@@ -129,6 +130,10 @@
             bottom: 0;
             right: 0;
             opacity: 1.0;
+        }
+
+        #cText {
+            margin-left: -33%;
         }
 
         #compositeText {
@@ -173,7 +178,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>How Does this work?</h2>
-                    <h3>Making the STEAM Cooker Lessons</h3>
+                    <h3>The Code Elements of 'Fractals'</h3>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -292,11 +297,14 @@
                         </div>
                     </div>               
                 </div>
+                <div id="sketchDiv">
+                    <div id="cText">HTML5 &lt;canvas&gt; for P5.JS animations</div>
+                    <div id="sketchCanvas">
+                    </div>                    
+                </div>
+
 
                 <div id="main">
-                    <div id="sketchCanvas">
-                        <div id="cText">HTML5 &lt;canvas&gt; for P5.JS animations</div>
-                    </div>
                     <div id="videoDiv">
                         <canvas id="videoCanvas" width="960" height="720"></canvas>
                             <div id="compositeText">HTML5 &lt;canvas&gt; for composited video</div>
@@ -465,7 +473,7 @@
         });
 
         function rotator() {
-            // $('#module').get(0).style.transform = "rotateY("+count+"deg)";
+            $('#module').get(0).style.transform = "rotateY("+count+"deg)";
             
             // set rotational constraints
             if (Math.round(count) == 30 || Math.round(count) == -30) {
