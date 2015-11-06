@@ -88,7 +88,7 @@ var script = {
             onStart: function(options) {
                 // hide sidebar copy
                 $('#fractaltitle').hide();
-                $('#module').css({
+                $('#bg').css({
                     'background-image': 'url(../img/fractals-clouds.jpg)'
                 });
             }
@@ -97,7 +97,7 @@ var script = {
         pop.code({
             start: 49.008596,
             onStart: function(options) {
-                $('#module').css({
+                $('#bg').css({
                     'background-image': 'url(../img/fractals-mountains.jpg)'
                 });
             }
@@ -106,7 +106,7 @@ var script = {
         pop.code({
             start: 51.018562,
             onStart: function(options) {
-                $('#module').css({
+                $('#bg').css({
                     'background-image': 'url(../img/fractals-trees.jpg)'
                 });
             }
@@ -115,7 +115,7 @@ var script = {
         pop.code({
             start: 59.5,
             onStart: function(options) {
-                $('#module').css({
+                $('#bg').css({
                     'background-image': 'url(../img/logo.png)',
                     'background-repeat': 'no-repeat',
                     'background-position': 'center center',
@@ -128,7 +128,7 @@ var script = {
             start: 71.0,
             onStart: function(options) {
                 // clear background
-                $('#module').css({
+                $('#bg').css({
                     'background-image': 'none'
                 });
                 // hide sidebar copy
@@ -257,7 +257,7 @@ var script = {
                 $('#pseudocode').hide();
                 $('#sketchCanvas').hide();
                 $('#twoHundred, #oneHundred').hide();
-                $('#module').css({
+                $('#bg').css({
                     'background-image': 'url(../img/recursion.jpg)',
                     'background-size': 'cover'
                 });
@@ -267,7 +267,7 @@ var script = {
         pop.code({
             start: 290,
             onStart: function(options) {
-                $('#module').css({
+                $('#bg').css({
                     'background-image': 'none'
                 });
                 $('#sketchCanvas').show();

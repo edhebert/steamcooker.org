@@ -26,40 +26,116 @@
     <![endif]-->
     
     <style>
+        #welcome {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
         .perspective {
-          -webkit-perspective: 10000px;
-          -moz-perspective: 10000px;
-          perspective: 10000px;
+          -webkit-perspective: 1000px;
+          -moz-perspective: 1000px;
+          perspective: 1000px;
+          -webkit-perspective-origin: 50% 10%;
+          -moz-perspective-origin: 50% 10%;
+          perspective-origin: 50% 10%;
         }
 
         .three-d {
           text-align:center;
-          /*background-color: #ccc;*/
           -webkit-transform-style: preserve-3d;
           -moz-transform-style: preserve-3d;
-          /*transform-style: preserve-3d;*/
+          transform-style: preserve-3d;
+        }
+
+        #bg {
+          background-color: #dfd;
+           -webkit-transform: translateZ(-300px);
+          -moz-transform: translateZ(-300px);
+          transform: translateZ(-300px);
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          background-size: cover;
+        }
+
+        #videoDiv {
+          height: 700px;
+          width: 100%;
         }
 
         #videoCanvas {
-          -webkit-transform: translateZ(500px);
-          -moz-transform: translateZ(500px);
-          transform: translateZ(500px);
+/*          -webkit-transform: translateZ(-200px);
+          -moz-transform: translateZ(-200px);
+          transform: translateZ(-200px);*/
           background-color: transparent;
         }
 
         #sketchCanvas {
-          -webkit-transform: translateZ(300px);
-          -moz-transform: translateZ(300px);
-          transform: translateZ(300px);
-          background-color: #999;
+          -webkit-transform: translateZ(-200px);
+          -moz-transform: translateZ(-200px);
+          transform: translateZ(-200px);
+          /*background-color: #ddf;*/
+           background-color: rgba(208, 208, 255, 0.5);
           opacity: 0.8;
+          position: absolute;
+          margin-top: 100px;
+          height: 600px;
+          width: 66%;
         }  
 
         /*initially hide stuff */
-        #videoCanvas, #sketchCanvas, #videoClip, #bgText, #cText, #seekBar, #main {
+        #videoDiv, #sketchCanvas, #videoClip, #bgText, #cText, #seekBar, #main, #module, #perspective, #videoTitle {
             display: none;
         }
 
+
+        #perspective  {
+            position: relative;
+            height: 800px;  
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        #sidebar {
+            width: 33%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /*background-color: #fdd;*/
+            background-color: rgba(255, 208, 208, 0.5);
+          -webkit-transform: translateZ(-100px);
+          -moz-transform: translateZ(-100px);
+          transform: translateZ(-100px);
+          opacity: 0.8;
+          text-align: left;
+          height: 100%;
+        }
+
+        #main {
+            margin-left: 33%;
+        }
+
+        #module {
+            margin: 0 auto;
+            height: 700px;
+            width: 100%;
+            position: absolute;
+            transform: rotateY(15deg);
+            /*transform: rotate3d(0, .1, 0, 15deg);*/
+        }
+        #videoCanvas {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            opacity: 1.0;
+        }
+
+        #compositeText {
+            position: absolute;
+            bottom:-20px;
+            right:0;
+        }
 
     </style>
 
@@ -91,41 +167,31 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-<section id="about">
-    <div style="margin-top: 50px" class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2>How Does this work?</h2>
-                <h3>Making the STEAM Cooker Lessons</h3>
-                <hr class="star-primary">
+
+    <section id="about">
+        <div style="margin-top: 50px" class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>How Does this work?</h2>
+                    <h3>Making the STEAM Cooker Lessons</h3>
+                    <hr class="star-primary">
+                </div>
             </div>
         </div>
-    </div>
-</section>
-<div id="experiment">
-  <div id="perspective" class="perspective">
-    <div class="three-d" id="rotator" style="-webkit-transform: rotateX(0 deg);">
-        <!-- Module Grid Section -->
-        <section id="module" style="padding: 0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <div id="welcome"><button id="begin" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Click to Begin</button></div>
-                        <div id="bgText">Background div</div>
-                    </div>
+    </section>
+
+    <div id="welcome"><button id="begin" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Click to Begin</button></div>
+
+    <div id="experiment">
+        <div id="perspective" class="perspective">
+            <div class="three-d" id="module">
+                <div id="bg">
+                      Background &lt;div&gt;              
                 </div>
-                <div class="row">
 
-                    <div class="col-sm-9 col-sm-push-3 text-center">
-                            <div id="main">
-                                <div id="sketchCanvas"><span id="cText">HTML5 canvas (for JavaScript visuals)</span></div>
-                                <div id="sketchOverlay"></div>
-                                <canvas id="videoCanvas" width="960" height="720"></canvas>
-                            </div>                  
-                    </div>
-
-                    <div class="col-sm-3 col-sm-pull-9">
-                   <div class="panel panel-warning" id="fractaltitle">
+                <div id="sidebar">
+                    <div class="text-center">&lt;aside&gt;</div>
+                    <div class="panel panel-warning" id="fractaltitle">
                         <div class="panel-heading">
                             <h3 class="panel-title">Fractal Geometry</h3>
                         </div>
@@ -197,56 +263,71 @@
                         </div>                      
                     </div>                    
 
-                        <div id="treeForm">
+                    <div id="treeForm">
 
-                            <form>
-                                <div class="form-group">
-                                    <label for="angle">Angle: <span id="degNum"></span>&deg;</label><br>
-                                    <input type="range" id="angle" min="0" max="90" value="29">                              
-                                </div>
-                                <div class="form-group">
-                                    <label for="branches">Branches: <span id="branchNum"></span></label><br>
-                                    <input type="range" id="branches" min="2" max="4" value="2">                           
-                                </div>
-                                <div class="form-group">
-                                    <label for="color">Color: <span id="colorVal"></span></label><br>
-                                    <input type="range" id="color" min="0" max="255" value="123">                          
-                                </div>
-                                <div class="form-group">
-                                    <label for="trunk">Trunk Width: <span id="trunkNum"></span> pixels</label><br>
-                                    <input type="range" id="trunk" min="5" max="30" value="10">          
-                                </div>
-                                <div class="form-group">
-                                    <label for="branchSize">Final Branch Length: <span id="branchSzNum"></span> pixels</label><br>
-                                    <input type="range" id="branchSize" min="5" max="120" value="120">                           
-                                </div>
-                            </form>
-                            <div class="checkbox">
-                                <input type="checkbox" name="isRandom" id="isRandom">                           
+                        <form>
+                            <div class="form-group">
+                                <label for="angle">Angle: <span id="degNum"></span>&deg;</label><br>
+                                <input type="range" id="angle" min="0" max="90" value="29">                              
                             </div>
+                            <div class="form-group">
+                                <label for="branches">Branches: <span id="branchNum"></span></label><br>
+                                <input type="range" id="branches" min="2" max="4" value="2">                           
+                            </div>
+                            <div class="form-group">
+                                <label for="color">Color: <span id="colorVal"></span></label><br>
+                                <input type="range" id="color" min="0" max="255" value="123">                          
+                            </div>
+                            <div class="form-group">
+                                <label for="trunk">Trunk Width: <span id="trunkNum"></span> pixels</label><br>
+                                <input type="range" id="trunk" min="5" max="30" value="10">          
+                            </div>
+                            <div class="form-group">
+                                <label for="branchSize">Final Branch Length: <span id="branchSzNum"></span> pixels</label><br>
+                                <input type="range" id="branchSize" min="5" max="120" value="120">                           
+                            </div>
+                        </form>
+                        <div class="checkbox">
+                            <input type="checkbox" name="isRandom" id="isRandom">                           
                         </div>
-                    </div>
+                    </div>               
                 </div>
-            </div>
-        </section>
-    </div>
-  </div>
-</div>
 
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div id="videoClip" style="position:relative; margin: 150px auto;"></div>
-                    <div style="margin-bottom: 100px">
-                        <input type="range" id="seekBar" value="0">
-                        <div id="pause">
-                            <i id="pauseButton" class="fa fa-pause"></i>
-                        </div>
+                <div id="main">
+                    <div id="sketchCanvas">
+                        <div id="cText">HTML5 &lt;canvas&gt; for P5.JS animations</div>
+                    </div>
+                    <div id="videoDiv">
+                        <canvas id="videoCanvas" width="960" height="720"></canvas>
+                            <div id="compositeText">HTML5 &lt;canvas&gt; for composited video</div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-conter">
+                <div style="margin-bottom: 100px">
+                    <input type="range" id="seekBar" value="0">
+                    <div id="pause">
+                        <i id="pauseButton" class="fa fa-pause"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div id="videoTitle">Unprocessed HTML5 video - (normally hidden)<br>This video stream is fed into the video &lt;canvas&gt; for chromakey compositing with Seriously.JS</div>
+                <div id="videoClip" style="position:relative; margin: 0 auto;"></div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Footer -->
     <footer class="text-center">
@@ -379,24 +460,23 @@
                 
 
                 // show elements
-                $('#videoCanvas, #sketchCanvas, #videoClip, #bgText, #cText, #seekBar, #main').css('display','block');
-                $('.three-d').css('background-color', '#eee');
+                $('#videoDiv, #sketchCanvas, #videoClip, #bgText, #cText, #seekBar, #main, #module, #perspective, #videoTitle').css('display','block');
             });
         });
 
         function rotator() {
-            $('#rotator').get(0).style.transform = "rotateY("+count+"deg)";
+            // $('#module').get(0).style.transform = "rotateY("+count+"deg)";
             
             // set rotational constraints
-            if (count == 60 || count == 0) {
+            if (Math.round(count) == 30 || Math.round(count) == -30) {
                 countForward = !countForward;
             } 
 
             //cycle  rotation back and forth when we hit the constraints
             if (countForward)
-                count+=0.25;
+                count+=0.1;
             else
-                count-=0.25;
+                count-=0.1;
         }
 
     </script>
