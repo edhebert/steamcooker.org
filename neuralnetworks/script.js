@@ -39,12 +39,14 @@ var script = {
         $('#spark').hide();
         $('#math').hide();
         $('#sweet').hide();
+        $('#perceptron1').hide();
+        $('#perceptron2').hide();
+        $('#perceptron3').hide();
+        $('#perceptron4').hide();
+        $('#perceptron5').hide();
         $('#hovered').hide();
       }
     });
-   
-
-    // Images of Clouds, Mountains, and Trees
 
     // introduce spark 
     pop.code({
@@ -75,18 +77,72 @@ var script = {
       }
     });
 
-     // back to spark
+    // back to spark
     pop.code({
-      start: 36 ,
+      start: 37.0 ,
       onStart: function( options ) {
         $('#sweet').hide();
         $('#spark').show();
       }
     });
 
+    // perceptron frame 1
+    pop.code({
+      start: 54.0 ,
+      onStart: function( options ) {
+        $('#spark').hide();
+        $('#perceptron1').show();
+      }
+    });
+
+    // perceptron frame 2
+    pop.code({
+      start: 56.0 ,
+      onStart: function( options ) {
+        $('#perceptron1').hide();
+        $('#perceptron2').show();
+      }
+    });
+
+    // perceptron frame 3
+    pop.code({
+      start: 56.5 ,
+      onStart: function( options ) {
+        $('#perceptron2').hide();
+        $('#perceptron3').show();
+      }
+    });
+
+    // perceptron frame 4
+    pop.code({
+      start: 57.0 ,
+      onStart: function( options ) {
+        $('#perceptron3').hide();
+        $('#perceptron4').show();
+      }
+    });
+
+    // perceptron frame 5
+    pop.code({
+      start: 58.2 ,
+      onStart: function( options ) {
+        $('#perceptron4').hide();
+        $('#perceptron5').show();
+      }
+    });
+
+    // back to spark
+    pop.code({
+      start: 61 ,
+      onStart: function( options ) {
+        $('#perceptron5').hide();
+        $('#spark').show();
+      }
+    });
+
     // hover for perceptron 58.5
     pop.code({
-      start: 58.5 ,
+      start: 62 ,
       onStart: function( options ) 
       {
         $("#spark").mouseenter(function () {
@@ -116,20 +172,6 @@ var script = {
           $('#spark').show();
         });
         }
-    });
-
-    // imagination 59.5
-    pop.code({
-      start: 73.5 ,
-      onStart: function( options ) {
-        $('#module').css({
-          'background-image': 'url(../img/logo.png)',
-          'background-repeat': 'no-repeat',
-          'background-position': 'center center',
-          'background-size': '400px'
-        });
-        $('#fractaltitle').hide();
-      }
     });
 
     // Tree
