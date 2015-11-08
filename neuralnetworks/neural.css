@@ -205,6 +205,62 @@ canvas {
   z-index: 1000;
 }
 
+#question1 {
+  position: absolute;
+  left: 62%;
+  bottom: 3%;
+  height: 85%;
+  z-index: 1000;
+}
+
+#question2 {
+  position: absolute;
+  left: 62%;
+  bottom: 3%;
+  height: 85%;
+  z-index: 1000;
+}
+
+#question3 {
+  position: absolute;
+  left: 62%;
+  bottom: 3%;
+  height: 85%;
+  z-index: 1000;
+}
+
+#weight1 {
+  position: absolute;
+  left: 62%;
+  bottom: 3%;
+  height: 85%;
+  z-index: 1000;
+}
+
+#weight2 {
+  position: absolute;
+  left: 62%;
+  bottom: 3%;
+  height: 85%;
+  z-index: 1000;
+}
+
+#weight3 {
+  position: absolute;
+  left: 62%;
+  bottom: 3%;
+  height: 85%;
+  z-index: 1000;
+}
+
+#answers {
+  position: absolute;
+  left: 62%;
+  bottom: 3%;
+  height: 85%;
+  z-index: 1000;
+}
+
 /* Code to "blink" tet when it's highlighted */
 
 .blinkme {

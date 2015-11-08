@@ -45,8 +45,16 @@ var script = {
         $('#perceptron4').hide();
         $('#perceptron5').hide();
         $('#hovered').hide();
+        $('#question1').hide();
+        $('#question2').hide();
+        $('#question3').hide();
+        $('#weight1').hide();
+        $('#weight2').hide();
+        $('#weight3').hide();
+        $('#answers').hide();
       }
     });
+
 
     // introduce spark 
     pop.code({
@@ -174,10 +182,74 @@ var script = {
         }
     });
 
-    // Tree
-
+    // questions frame 1
     pop.code({
-      start: 71.0 ,
+      start: 71.5 ,
+      onStart: function( options ) {
+        $('#spark').hide();
+        $('#question1').show();
+      }
+    });
+
+    // questions frame 2
+    pop.code({
+      start: 73.5 ,
+      onStart: function( options ) {
+        $('#question1').hide();
+        $('#question2').show();
+      }
+    });
+
+    // questions frame 3
+    pop.code({
+      start: 75.8 ,
+      onStart: function( options ) {
+        $('#question2').hide();
+        $('#question3').show();
+      }
+    });
+
+    
+    // weights frame 1
+    pop.code({
+      start: 94.1 ,
+      onStart: function( options ) {
+        $('#question3').hide();
+        $('#weight1').show();
+      }
+    });
+
+    // weights frame 2
+    pop.code({
+      start: 100.0 ,
+      onStart: function( options ) {
+        $('#weight1').hide();
+        $('#weight2').show();
+      }
+    });
+
+    // weights frame 3
+    pop.code({
+      start: 108.0 ,
+      onStart: function( options ) {
+        $('#weight2').hide();
+        $('#weight3').show();
+      }
+    });
+
+    // answers
+    pop.code({
+      start: 114.1 ,
+      onStart: function( options ) {
+        $('#weight3').hide();
+        $('#answers').show();
+      }
+    });
+
+
+    // ED CODE
+    pop.code({
+      start: 171.0 ,
       onStart: function( options ) {
 
         // clear background
@@ -204,7 +276,7 @@ var script = {
 
     // erase the tree and begin a new tree
     pop.code({
-      start: 89.184778 ,
+      start: 189.184778 ,
       onStart: function( options ) {
 
         hideTree = true;
@@ -217,7 +289,7 @@ var script = {
 
     // begin displaying pseudocode
     pop.code({
-      start: 95.484 ,
+      start: 195.484 ,
       onStart: function( options ) {
         $('#pseudocode').fadeIn();       
       }
