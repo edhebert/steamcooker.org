@@ -52,6 +52,7 @@ var script = {
         $('#weight2').hide();
         $('#weight3').hide();
         $('#answers').hide();
+        $('#decision').hide();
       }
     });
 
@@ -246,10 +247,19 @@ var script = {
       }
     });
 
+    // decision
+    pop.code({
+      start: 126.5 ,
+      onStart: function( options ) {
+        $('#answers').hide();
+        $('#decision').show();
+      }
+    });
+
 
     // ED CODE
     pop.code({
-      start: 171.0 ,
+      start: 271.0 ,
       onStart: function( options ) {
 
         // clear background
@@ -276,7 +286,7 @@ var script = {
 
     // erase the tree and begin a new tree
     pop.code({
-      start: 189.184778 ,
+      start: 289.184778 ,
       onStart: function( options ) {
 
         hideTree = true;
@@ -289,7 +299,7 @@ var script = {
 
     // begin displaying pseudocode
     pop.code({
-      start: 195.484 ,
+      start: 295.484 ,
       onStart: function( options ) {
         $('#pseudocode').fadeIn();       
       }
@@ -297,7 +307,7 @@ var script = {
 
     // show first line of code, length = 200px
     pop.code({
-      start: 120.911539 ,
+      start: 220.911539 ,
       onStart: function( options ) {
         $('#line1, #line2, #line3').fadeIn();       
       }
@@ -308,7 +318,7 @@ var script = {
     // build the tree from its trunk root ("200 px" in the script)
 
     pop.code({
-      start: 141.545849 ,
+      start: 241.545849 ,
       onStart: function( options ) {
 
         // disable mouse control of angle
@@ -322,7 +332,7 @@ var script = {
 
     // fade in the "base case"
     pop.code({
-      start: 175 ,
+      start: 275 ,
       onStart: function( options ) {
         $('#line4').fadeIn();       
       }
@@ -330,7 +340,7 @@ var script = {
 
     // blink it
     pop.code({
-      start: 190 ,
+      start: 290 ,
       onStart: function( options ) {
         $('#line4').addClass('blinkme');       
       }
@@ -338,7 +348,7 @@ var script = {
 
 
     pop.code({
-      start: 197 ,
+      start: 297 ,
       onStart: function( options ) {
         $('#line4').removeClass('blinkme');       
       }

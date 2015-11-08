@@ -261,6 +261,14 @@ canvas {
   z-index: 1000;
 }
 
+#decision {
+  position: absolute;
+  left: 60%;
+  bottom: 0;
+  height: 81%;
+  z-index: 1000;
+}
+
 /* Code to "blink" tet when it's highlighted */
 
 .blinkme {
