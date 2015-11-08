@@ -36,65 +36,62 @@ var script = {
       start: 0 ,
       onStart: function( options ) {
         $('#treeForm').fadeOut();
-        $('#spark').hide();
-        $('#math').hide();
-        $('#hovered').hide();
       }
     });
    
 
     // Images of Clouds, Mountains, and Trees
 
-    // introduce spark 
+    // spark
     pop.code({
       start: 2.65 ,
       onStart: function( options ) {
-        $('#spark').show();
+        $('#spark').prepend('<img id="spark" src="../img/spark.png" />');
       }
     });
 
-    // click for math
+    // math
     pop.code({
       start: 20.0 ,
       onStart: function( options ) {
         $( "#spark" ).click(function() {
-          $('#spark').hide();
-          $('#math').show();
+          $("#spark img:last-child").remove()
+          $('#spark').prepend('<img id="math" src="../img/math.png" />');
         });
       }
     });
 
-    // return to spark
+    // perceptron hover 58.5
     pop.code({
-      start: 30.0 ,
-      onStart: function( options ) {
-        $('#math').hide();
-        $('#spark').show();
-      }
-    });
-
-    // sweet or sour
-
-    // hover for perceptron
-    pop.code({
-      start: 58.5 ,
+      start: 4.5 ,
       onStart: function( options ) 
       {
-        $("#spark").mouseenter(function () {
-          $('#spark').hide();
-          $('#hovered').show();
-        });
+        // $("#spark").mouseenter(function () {
+        //   $("#spark img:last-child").remove();
+        //   $('#spark').prepend('<img id="math" src="../img/hover.png" />');
+        // });
 
-        $("#hovered").mouseleave(function () {
-          $('#hovered').hide();
-          $('#spark').show();
-        });
+        // $("#spark").mouseleave(function () {
+        //   $("#spark img:last-child").remove();
+        //   $('#spark').prepend('<img id="math" src="../img/spark.png" />');
+        // });
+        $("#spark").hover(
+          function() 
+          {
+            $("#spark img:last-child").remove();
+            $('#spark').prepend('<img id="math" src="../img/hover.png" />');
+          },
+          function()
+          {
+            $("#spark img:last-child").remove();
+            $('#spark').prepend('<img id="math" src="../img/spark.png" />');
+          });
         }
     });
 
-    // imagination 59.5
+    // imagination
     pop.code({
-      start: 73.5 ,
+      start: 59.5 ,
       onStart: function( options ) {
         $('#module').css({
           'background-image': 'url(../img/logo.png)',

@@ -148,6 +148,14 @@ canvas {
   z-index: 1000;
 }
 
+#hovered {
+  position: absolute;
+  left: 60%;
+  bottom: 0;
+  height: 118.5%;
+  z-index: 1000;
+}
+
 /* Code to "blink" tet when it's highlighted */
 
 .blinkme {
