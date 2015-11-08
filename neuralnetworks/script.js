@@ -38,6 +38,7 @@ var script = {
         $('#treeForm').fadeOut();
         $('#spark').hide();
         $('#math').hide();
+        $('#sweet').hide();
         $('#hovered').hide();
       }
     });
@@ -64,18 +65,26 @@ var script = {
       }
     });
 
-    // return to spark
+    // sweet or sour
     pop.code({
-      start: 30.0 ,
+      start: 29.3 ,
       onStart: function( options ) {
         $('#math').hide();
+        $('#spark').hide();
+        $('#sweet').show();
+      }
+    });
+
+     // back to spark
+    pop.code({
+      start: 36 ,
+      onStart: function( options ) {
+        $('#sweet').hide();
         $('#spark').show();
       }
     });
 
-    // sweet or sour
-
-    // hover for perceptron
+    // hover for perceptron 58.5
     pop.code({
       start: 58.5 ,
       onStart: function( options ) 
@@ -83,6 +92,23 @@ var script = {
         $("#spark").mouseenter(function () {
           $('#spark').hide();
           $('#hovered').show();
+        });
+
+        $("#hovered").mouseleave(function () {
+          $('#hovered').hide();
+          $('#spark').show();
+        });
+        }
+    });
+
+    // stop hover for perceptron
+    pop.code({
+      start: 68.5 ,
+      onStart: function( options ) 
+      {
+        $("#spark").mouseenter(function () {
+          $('#hovered').hide();
+          $('#spark').show();
         });
 
         $("#hovered").mouseleave(function () {
