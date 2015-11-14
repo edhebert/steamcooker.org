@@ -14,8 +14,10 @@
 /* preload all future background images for call via popcorn*/
 #module:before{
      content: '';
-     background:  url(../img/fractals-clouds.jpg), url(../img/fractals-mountains.jpg),url(../img/fractals-trees.jpg), url(../img/logo.png), url(../img/recursion.jpg);
-     width:0;height:0;visibility:hidden;
+     background:  url(../img/fractals-clouds.jpg), url(../img/fractals-mountains.jpg),url(../img/fractals-trees.jpg), url(../img/logo.png), url(../img/recursion.jpg), url(../img/math.png), url(../img/computers.png);
+     width:0;
+     height:0;
+     visibility:hidden;
 }
 
 canvas {
