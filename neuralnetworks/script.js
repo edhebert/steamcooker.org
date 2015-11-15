@@ -106,6 +106,22 @@ var script = {
       }
     });
 
+    // show neural networks definition
+    pop.code({
+      start: 41.0 ,
+      onStart: function( options ) {
+        $('#neuralnets').show();
+      }
+    });
+
+    // hide neural networks definition
+    pop.code({
+      start: 51.0 ,
+      onStart: function( options ) {
+        $('#neuralnets').hide();
+      }
+    });
+
     // perceptron frame 1
     pop.code({
       start: 54.0 ,
