@@ -37,6 +37,7 @@ var script = {
       onStart: function( options ) {
         $('#treeForm').fadeOut();
         $('#spark').hide();
+        $('#clickme').hide();
         $('#math').hide();
         $('#sweet').hide();
         $('#perceptron1').hide();
@@ -65,12 +66,21 @@ var script = {
       }
     });
 
+    // prompt user click
+    pop.code({
+      start: 20.8 ,
+      onStart: function( options ) {
+        $('#spark').hide();
+        $('#clickme').show();
+      }
+    });
+
     // click for math
     pop.code({
-      start: 20.0 ,
+      start: 20.8 ,
       onStart: function( options ) {
-        $( "#spark" ).click(function() {
-          $('#spark').hide();
+        $( "#clickme" ).click(function() {
+          $('#clickme').hide();
           $('#math').show();
         });
       }
@@ -81,6 +91,7 @@ var script = {
       start: 29.3 ,
       onStart: function( options ) {
         $('#math').hide();
+        $('#clickme').hide();
         $('#spark').hide();
         $('#sweet').show();
       }
