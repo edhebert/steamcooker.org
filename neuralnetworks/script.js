@@ -210,6 +210,14 @@ var script = {
         }
     });
 
+    // ensure hover is hidden
+    pop.code({
+      start: 71.5 ,
+      onStart: function( options ) {
+        $('#hovered').hide();
+      }
+    });
+
     // questions frame 1
     pop.code({
       start: 71.5 ,
