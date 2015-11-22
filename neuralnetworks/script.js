@@ -45,6 +45,7 @@ var script = {
         $('#perceptron3').hide();
         $('#perceptron4').hide();
         $('#perceptron5').hide();
+        $('#hoveroverme').hide();
         $('#hovered').hide();
         $('#question1').hide();
         $('#question2').hide();
@@ -176,19 +177,28 @@ var script = {
       }
     });
 
+      // back to spark
+    pop.code({
+      start: 61 ,
+      onStart: function( options ) {
+        $('#spark').hide();
+        $('#hoveroverme').show();
+      }
+    });
+
     // hover for perceptron 58.5
     pop.code({
       start: 62 ,
       onStart: function( options ) 
       {
-        $("#spark").mouseenter(function () {
-          $('#spark').hide();
+        $("#hoveroverme").mouseenter(function () {
+          $('#hoveroverme').hide();
           $('#hovered').show();
         });
 
         $("#hovered").mouseleave(function () {
           $('#hovered').hide();
-          $('#spark').show();
+          $('#hoveroverme').show();
         });
         }
     });
@@ -198,14 +208,14 @@ var script = {
       start: 68.5 ,
       onStart: function( options ) 
       {
-        $("#spark").mouseenter(function () {
+        $("#hoveroverme").mouseenter(function () {
           $('#hovered').hide();
-          $('#spark').show();
+          $('#hoveroverme').hide();
         });
 
         $("#hovered").mouseleave(function () {
           $('#hovered').hide();
-          $('#spark').show();
+          $('#hoveroverme').hide();
         });
         }
     });
@@ -215,6 +225,8 @@ var script = {
       start: 71.5 ,
       onStart: function( options ) {
         $('#hovered').hide();
+        $('#hoveroverme').hide();
+        $('#spark').hide();
       }
     });
 
