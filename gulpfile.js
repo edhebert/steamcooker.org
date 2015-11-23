@@ -18,10 +18,12 @@ gulp.task('less', function() {
     return gulp.src('less/bootstrap.less')
         .pipe(less())
         .pipe(uncss({
+            // look for any changes to either the main or fractal lessons
             html: [
                 '*.html',
                 'fractals/*.html'
             ],
+            // preserve all of the following classes (don't ever remove them in uncss)
             ignore: [
                 /^\.navbar/,
                 /^\.col-/,
@@ -35,6 +37,7 @@ gulp.task('less', function() {
                 /^\.top-nav-collapse/
             ]
         }))
+        // join everything together and export the distro code
         .pipe(minifyCSS())
         .pipe(gulp.dest('dist'));
 }); 
@@ -43,6 +46,7 @@ gulp.task('less', function() {
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
     return gulp.src(
+            // concatenate all these js dependencies into one file
             [
               'js/jquery.js',
               'js/bootstrap.min.js',
