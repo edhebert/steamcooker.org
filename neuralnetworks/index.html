@@ -73,8 +73,12 @@
                 <div class="col-sm-12 text-center">
                     <h2>Neural Networks</h2>
                     <h3>Helping Robots Make Decisions</h3>
-                    <hr class="star-primary">                
-                    <button id="begin" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Click to Begin</button>
+                    <hr class="star-primary">  
+                    <img src="../img/module/neuralnet.svg" alt="NeuralNets" class="img-responsive" style="width: 400px; margin: auto">
+                    <br>              
+                    <button id="short" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Short Lesson (3 minutes)</button>
+                    <button id="long" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> "Deep Dive" Lesson (5 minutes)</button> 
+                    <button id="example" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Neural Network Example (No Lesson)</button>     
                 </div>
             </div>
             <div class="row" id="presentation">
@@ -99,6 +103,7 @@
                             <div id="weight3"><img id="weight3" src="../img/weights3.png" /></div>
                             <div id="answers"><img id="answers" src="../img/homework.png" /></div>
                             <div id="decision"><img id="decision" src="../img/decision.png" /></div>
+                            <div id="decision2"><img id="decision2" src="../img/no.png" /></div>
 
                             <div id="pause">
                                 <i id="pauseButton" class="fa fa-pause"></i>
@@ -123,12 +128,12 @@
                     </div>
 
 
-                    <div class="panel panel-warning" id="recursion">
+                    <div class="panel panel-default" id="perceptrondef">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Recursion</h3>
+                            <h3 class="panel-title">Perceptron</h3>
                         </div>
                         <div class="panel-body">
-                            <div>Recursion is the process of repeating items in a <em><strong>self-similar</strong></em> way.</div>
+                            <div>A Perceptron is a type of artifical neuron that can have lots of inputs, but only ever has one output.</div>
                         </div>                      
                     </div>
 
@@ -274,6 +279,7 @@
     <script src="../js/vendor/effects/seriously.chroma.js"></script>
 
     <script src="script.js"></script>
+    <script src="script-long.js"></script>
     <script src="main.js"></script>
 
     <!-- lesson scripts -->
@@ -297,6 +303,22 @@
           main.init();
         }
 
+        });
+
+         // load the proper script or sketch based on user selection
+        $('#short').click(function() {
+            var btn = $(this);
+            btn.button('loading');
+            script = shortScript;
+            main.init();
+            main.playVideo();
+            btn.button('reset');
+        });
+
+        $('#long').click(function() {
+            script = longScript;
+            main.init();
+            main.playVideo();
         });
 
     </script>
