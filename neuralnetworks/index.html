@@ -104,6 +104,8 @@
                             <div id="answers"><img id="answers" src="../img/homework.png" /></div>
                             <div id="decision"><img id="decision" src="../img/decision.png" /></div>
                             <div id="decision2"><img id="decision2" src="../img/no.png" /></div>
+                            <div id="go"><img id="go" src="../img/go.png" /></div>
+                            <div id="dontgo"><img id="dontgo" src="../img/dontgo.png" /></div>
 
                             <div id="pause">
                                 <i id="pauseButton" class="fa fa-pause"></i>
@@ -146,33 +148,65 @@
                         </div>                      
                     </div>
 
-                    <div id="treeForm">
+                    <div id="neuralForm">
                         <form>
                             <div class="form-group">
-                                <label for="angle">Angle: <span id="degNum"></span>&deg;</label><br>
-                                <input type="range" id="angle" min="0" max="90" value="29">                              
+                                <label for="homework">Have you finished your homework?</label>
+                                <select id="hwoptions">
+                                  <option value="0">Yes</option>
+                                  <option value="1">No</option>
+                                </select>
+                                <br>
+                                <label for="homework">How important is finishing your homework?</label><br>
+                                <img src="../img/homeworkicon.png" id="homeworkimg" alt="Homework" style="width:30%">
+                                <select id="hwweights">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                </select>
+
+                                <!-- <input type="radio" id="hwyes" name="homework" value="hwyes">&nbsp;Yes
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" id="hwno" name="homework" value="hwno" checked>&nbsp;No<br>
+                                <img src="../img/homeworkicon.png" class="homeworkimg" alt="Homework" style="width:35%"> -->
                             </div>
                             <div class="form-group">
-                                <label for="branches">Branches: <span id="branchNum"></span></label><br>
-                                <input type="range" id="branches" min="2" max="4" value="2">                           
+                                <label for="friends">Are your friends going to be there?</label>
+                                <select id="foptions">
+                                  <option value="0">Yes</option>
+                                  <option value="1">No</option>
+                                </select>
+                                <br>
+                                <label for="friends">How important is your friends being at the park?</label><br>
+                                <img src="../img/friendsicon.png" id="friendimg" alt="Friends" style="width:30%">
+                                <select id="fweights">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="color">Color: <span id="colorVal"></span></label><br>
-                                <input type="range" id="color" min="0" max="255" value="123">                          
+                                <label for="color">Is the weather good?</label>
+                                <select id="woptions">
+                                  <option value="0">Yes</option>
+                                  <option value="1">No</option>
+                                </select>
+                                <br>
+                                <label for="color">How important is the weather?</label><br>
+                                <img src="../img/weathericon.png" id="weatherimg" alt="Weather" style="width:30%">
+                                <select id="wweight">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                </select>
                             </div>
-                            <div class="form-group">
-                                <label for="trunk">Trunk Width: <span id="trunkNum"></span> pixels</label><br>
-                                <input type="range" id="trunk" min="5" max="30" value="10">          
-                            </div>
-                            <div class="form-group">
-                                <label for="branchSize">Final Branch Length: <span id="branchSzNum"></span> pixels</label><br>
-                                <input type="range" id="branchSize" min="5" max="120" value="120">                           
-                            </div>
-                        </form>
-                        <div class="checkbox">
-                            <input type="checkbox" name="isRandom" id="isRandom">                           
-                        </div>
-                        
+                        </form>                        
                     </div>
                 </div>
             </div>
@@ -328,6 +362,96 @@
             script = longScript;
             main.init();
             main.playVideo();
+        });
+
+        $("#hwoptions").change(function () {
+        var x = document.getElementById("hwoptions");
+        var selectedHW = x.options[x.selectedIndex].value;
+
+            if (selectedHW == 1) {
+                document.getElementById("homeworkimg").src = "../img/homeworkiconbw.png";
+            }
+            else
+            {
+                document.getElementById("homeworkimg").src = "../img/homeworkicon.png";
+            }
+        });
+
+        $("#foptions").change(function () {
+        var x = document.getElementById("foptions");
+        var selectedF = x.options[x.selectedIndex].value;
+
+        console.log(selectedF);
+
+            if (selectedF == 1) {
+                document.getElementById("friendimg").src = "../img/friendsiconbw.png";
+            }
+            else
+            {
+                document.getElementById("friendimg").src = "../img/friendsicon.png";
+            }
+        });
+
+        $("#woptions").change(function () {
+        var x = document.getElementById("woptions");
+        var selectedF = x.options[x.selectedIndex].value;
+
+        console.log(selectedF);
+
+            if (selectedF == 1) {
+                document.getElementById("weatherimg").src = "../img/weathericonbw.png";
+            }
+            else
+            {
+                document.getElementById("weatherimg").src = "../img/weathericon.png";
+            }
+        });
+
+        $("#hwweights").change(function () {
+        var x = document.getElementById("hwweights");
+        var selectedHW = x.options[x.selectedIndex].value;
+
+        console.log(selectedHW);
+
+            if (selectedHW == 2) {
+                $('#dontgo').hide();
+                $('#go').show();
+            }
+            else
+            {
+                $('#go').hide();
+                $('#dontgo').show();
+            }
+        });
+
+        $("#fweights").change(function () {
+        var x = document.getElementById("fweights");
+        var selectedF = x.options[x.selectedIndex].value;
+
+        console.log(selectedF);
+
+            if (selectedF == 1) {
+                document.getElementById("friendimg").src = "../img/friendsiconbw.png";
+            }
+            else
+            {
+                document.getElementById("friendimg").src = "../img/friendsicon.png";
+            }
+        });
+
+        $("#wweights").change(function () {
+        var x = document.getElementById("wweights");
+        var selectedF = x.options[x.selectedIndex].value;
+
+        console.log(selectedF);
+
+            if (selectedF == 1) {
+                document.getElementById("weatherimg").src = "../img/weathericonbw.png";
+            }
+            else
+            {
+                document.getElementById("weatherimg").src = "../img/weathericon.png";
+            }
         });
 
     </script>
