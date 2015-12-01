@@ -153,8 +153,8 @@
                             <div class="form-group">
                                 <label for="homework">Have you finished your homework?</label>
                                 <select id="hwoptions">
-                                  <option value="0">Yes</option>
-                                  <option value="1">No</option>
+                                  <option value="1">Yes</option>
+                                  <option value="0">No</option>
                                 </select>
                                 <br>
                                 <label for="homework">How important is finishing your homework?</label><br>
@@ -175,8 +175,8 @@
                             <div class="form-group">
                                 <label for="friends">Are your friends going to be there?</label>
                                 <select id="foptions">
-                                  <option value="0">Yes</option>
-                                  <option value="1">No</option>
+                                  <option value="1">Yes</option>
+                                  <option value="0">No</option>
                                 </select>
                                 <br>
                                 <label for="friends">How important is your friends being at the park?</label><br>
@@ -192,13 +192,13 @@
                             <div class="form-group">
                                 <label for="color">Is the weather good?</label>
                                 <select id="woptions">
-                                  <option value="0">Yes</option>
-                                  <option value="1">No</option>
+                                  <option value="1">Yes</option>
+                                  <option value="0">No</option>
                                 </select>
                                 <br>
                                 <label for="color">How important is the weather?</label><br>
                                 <img src="../img/weathericon.png" id="weatherimg" alt="Weather" style="width:30%">
-                                <select id="wweight">
+                                <select id="wweights">
                                   <option value="1">1</option>
                                   <option value="2">2</option>
                                   <option value="3">3</option>
@@ -325,6 +325,8 @@
     <script src="script-long.js"></script>
     <script src="main.js"></script>
 
+    <script src="neuralexercise.js"></script>
+
     <!-- lesson scripts -->
     <!--<script type="text/javascript" src="neural.js"></script>-->
 
@@ -363,98 +365,8 @@
             main.init();
             main.playVideo();
         });
-
-        $("#hwoptions").change(function () {
-        var x = document.getElementById("hwoptions");
-        var selectedHW = x.options[x.selectedIndex].value;
-
-            if (selectedHW == 1) {
-                document.getElementById("homeworkimg").src = "../img/homeworkiconbw.png";
-            }
-            else
-            {
-                document.getElementById("homeworkimg").src = "../img/homeworkicon.png";
-            }
-        });
-
-        $("#foptions").change(function () {
-        var x = document.getElementById("foptions");
-        var selectedF = x.options[x.selectedIndex].value;
-
-        console.log(selectedF);
-
-            if (selectedF == 1) {
-                document.getElementById("friendimg").src = "../img/friendsiconbw.png";
-            }
-            else
-            {
-                document.getElementById("friendimg").src = "../img/friendsicon.png";
-            }
-        });
-
-        $("#woptions").change(function () {
-        var x = document.getElementById("woptions");
-        var selectedF = x.options[x.selectedIndex].value;
-
-        console.log(selectedF);
-
-            if (selectedF == 1) {
-                document.getElementById("weatherimg").src = "../img/weathericonbw.png";
-            }
-            else
-            {
-                document.getElementById("weatherimg").src = "../img/weathericon.png";
-            }
-        });
-
-        $("#hwweights").change(function () {
-        var x = document.getElementById("hwweights");
-        var selectedHW = x.options[x.selectedIndex].value;
-
-        console.log(selectedHW);
-
-            if (selectedHW == 2) {
-                $('#dontgo').hide();
-                $('#go').show();
-            }
-            else
-            {
-                $('#go').hide();
-                $('#dontgo').show();
-            }
-        });
-
-        $("#fweights").change(function () {
-        var x = document.getElementById("fweights");
-        var selectedF = x.options[x.selectedIndex].value;
-
-        console.log(selectedF);
-
-            if (selectedF == 1) {
-                document.getElementById("friendimg").src = "../img/friendsiconbw.png";
-            }
-            else
-            {
-                document.getElementById("friendimg").src = "../img/friendsicon.png";
-            }
-        });
-
-        $("#wweights").change(function () {
-        var x = document.getElementById("wweights");
-        var selectedF = x.options[x.selectedIndex].value;
-
-        console.log(selectedF);
-
-            if (selectedF == 1) {
-                document.getElementById("weatherimg").src = "../img/weathericonbw.png";
-            }
-            else
-            {
-                document.getElementById("weatherimg").src = "../img/weathericon.png";
-            }
-        });
-
     </script>
+
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
