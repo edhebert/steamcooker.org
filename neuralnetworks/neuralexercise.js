@@ -44,7 +44,7 @@ $(document).ready( function () {
 $("#hwoptions").change(function () {
     var x = document.getElementById("hwoptions");
     var selectedHW = x.options[x.selectedIndex].value;
-    if (selectedHW == 1) {
+    if (selectedHW == 0) {
         document.getElementById("homeworkimg").src = "../img/homeworkiconbw.png";
     }
     else
