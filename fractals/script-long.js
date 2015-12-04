@@ -107,6 +107,24 @@ var longScript = {
                 });
             }
         });
+        // math
+        pop.code({
+            start: 57.078869,
+            onStart: function(options) {
+                $('#module').css({
+                    'background-image': 'url(../img/math.png)'
+                });
+            }
+        });
+        // computers
+        pop.code({
+            start: 58.274596,
+            onStart: function(options) {
+                $('#module').css({
+                    'background-image': 'url(../img/computers.png)'
+                });
+            }
+        });
         // imagination
         pop.code({
             start: 59.5,
