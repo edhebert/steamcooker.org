@@ -116,10 +116,18 @@ var longScript = {
       }
     });
 
+    // show neurons definition
+    pop.code({
+      start: 46.5 ,
+      onStart: function( options ) {
+        $('#neurondef').show();
+      }
+    });
+
 
     // show perceptron definition
     pop.code({
-      start: 54.0 ,
+      start: 57.2 ,
       onStart: function( options ) {
         $('#perceptrondef').show();
       }
@@ -127,7 +135,7 @@ var longScript = {
 
     // perceptron frame 1
     pop.code({
-      start: 54.0 ,
+      start: 57.2 ,
       onStart: function( options ) {
         $('#spark').hide();
         $('#perceptron1').show();
@@ -136,7 +144,7 @@ var longScript = {
 
     // perceptron frame 2
     pop.code({
-      start: 56.0 ,
+      start: 58.2 ,
       onStart: function( options ) {
         $('#perceptron1').hide();
         $('#perceptron2').show();
@@ -145,7 +153,7 @@ var longScript = {
 
     // perceptron frame 3
     pop.code({
-      start: 56.5 ,
+      start: 58.7 ,
       onStart: function( options ) {
         $('#perceptron2').hide();
         $('#perceptron3').show();
@@ -154,7 +162,7 @@ var longScript = {
 
     // perceptron frame 4
     pop.code({
-      start: 57.0 ,
+      start: 59.2 ,
       onStart: function( options ) {
         $('#perceptron3').hide();
         $('#perceptron4').show();
@@ -163,7 +171,7 @@ var longScript = {
 
     // perceptron frame 5
     pop.code({
-      start: 58.2 ,
+      start: 60.5 ,
       onStart: function( options ) {
         $('#perceptron4').hide();
         $('#perceptron5').show();
@@ -179,9 +187,9 @@ var longScript = {
       }
     });
 
-      // back to spark
+    // hover prompt
     pop.code({
-      start: 61 ,
+      start: 62 ,
       onStart: function( options ) {
         $('#spark').hide();
         $('#hoveroverme').show();
@@ -234,7 +242,7 @@ var longScript = {
 
     // questions frame 1
     pop.code({
-      start: 71.5 ,
+      start: 73.3 ,
       onStart: function( options ) {
         $('#spark').hide();
         $('#question1').show();
@@ -243,7 +251,7 @@ var longScript = {
 
     // questions frame 2
     pop.code({
-      start: 73.5 ,
+      start: 75.1 ,
       onStart: function( options ) {
         $('#question1').hide();
         $('#question2').show();
@@ -252,7 +260,7 @@ var longScript = {
 
     // questions frame 3
     pop.code({
-      start: 75.8 ,
+      start: 76.9 ,
       onStart: function( options ) {
         $('#question2').hide();
         $('#question3').show();
@@ -262,7 +270,7 @@ var longScript = {
     
     // weights frame 1
     pop.code({
-      start: 94.1 ,
+      start: 98.1 ,
       onStart: function( options ) {
         $('#question3').hide();
         $('#weight1').show();
@@ -271,7 +279,7 @@ var longScript = {
 
     // weights frame 2
     pop.code({
-      start: 100.0 ,
+      start: 103.7  ,
       onStart: function( options ) {
         $('#weight1').hide();
         $('#weight2').show();
@@ -280,7 +288,7 @@ var longScript = {
 
     // weights frame 3
     pop.code({
-      start: 108.0 ,
+      start: 113.1 ,
       onStart: function( options ) {
         $('#weight2').hide();
         $('#weight3').show();
@@ -289,27 +297,19 @@ var longScript = {
 
     // answers
     pop.code({
-      start: 114.1 ,
+      start: 119.8  ,
       onStart: function( options ) {
         $('#weight3').hide();
         $('#answers').show();
       }
     });
 
-    // decision 1
+
+    // decision 
     pop.code({
-      start: 126.5 ,
+      start: 204.5 ,
       onStart: function( options ) {
         $('#answers').hide();
-        $('#decision').show();
-      }
-    });
-
-    // decision 2
-    pop.code({
-      start: 129 ,
-      onStart: function( options ) {
-        $('#decision').hide();
         $('#decision2').show();
       }
     });

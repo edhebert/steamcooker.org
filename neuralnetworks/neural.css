@@ -55,12 +55,13 @@ canvas {
     font-size: 18px;
 }
 
-#treeForm {
+#neuralFormm {
     visibility: hidden;
 }
 
 /* Code and text snippets in sidebar */
 #neuralnets, 
+#neurondef,
 #perceptrondef, 
 #line1,
 #line2,
@@ -291,6 +292,24 @@ canvas {
   bottom: 0;
   height: 80%;
   z-index: 1000;
+}
+
+#go {
+  position: absolute;
+  z-index: 10000;
+  bottom: 1%;
+  height: 100%;
+}
+
+#dontgo {
+  position: absolute;
+  z-index: 10000;
+  bottom: 1%;
+  height: 100%;
+}
+
+input[type="radio"] {
+    padding-right; 20px;
 }
 
 /* Code to "blink" tet when it's highlighted */

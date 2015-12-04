@@ -21,12 +21,6 @@ var shortScript = {
         $("#pauseButton").addClass("fa-play"); 
     });   
 
-    // pop.on("timeupdate", function(e) {
-    //   var position = pop.currentTime() / pop.duration();
-    //   var width = position * $("#main").width();
-    //   // $("#progress").css('width', width);
-    // });
-
     /**
     * Script
     */
@@ -35,7 +29,9 @@ var shortScript = {
     pop.code({
       start: 0 ,
       onStart: function( options ) {
-        $('#treeForm').fadeOut();
+        $('#neuralForm').hide();
+        $('#go').hide();
+        $('#dontgo').hide();
         $('#spark').hide();
         $('#clickme').hide();
         $('#math').hide();
@@ -58,7 +54,6 @@ var shortScript = {
         $('#decision2').hide();
       }
     });
-
 
     // introduce spark 
     pop.code({
@@ -314,12 +309,17 @@ var shortScript = {
       }
     });
 
-
-    // fade out video
+        // fade out video
     pop.code({
-      start: 493.952243 ,
+      start: 148 ,
       onStart: function( options ) {
-        $('#videoCanvas').fadeOut();
+        $('#videoCanvas').hide();
+        $('#decision2').hide();
+        $('#neuralnets').hide();
+        $('#perceptrondef').hide();
+        $('#neuralForm').fadeIn();
+        $('#go').fadeIn();
+        $('#dontgo').fadeIn();
       }
     });
 
