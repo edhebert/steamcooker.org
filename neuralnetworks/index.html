@@ -78,7 +78,7 @@
                     <br>              
                     <button id="short" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Short Lesson (3 minutes)</button>
                     <button id="long" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> "Deep Dive" Lesson (5 minutes)</button> 
-                    <button id="example" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Neural Network Example (No Lesson)</button>     
+                    <button id="exercise" class="btn btn-default" data-loading-text='<i class="fa fa-spinner fa-spin"></i> Loading'> Neural Network Example (No Lesson)</button>     
                 </div>
             </div>
             <div class="row" id="presentation">
@@ -255,8 +255,12 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus fugit quae enim nobis alias facilis quas quasi, provident vero fuga laudantium animi reprehenderit harum sequi accusantium voluptas illum debitis placeat!</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam ea, temporibus velit dicta asperiores eaque, repellendus distinctio quos vel id quisquam officia, quibusdam dignissimos. Aspernatur quia reprehenderit qui ex ratione.</p>
+                    <p>This interactive lesson was created using several different pieces of video and web software.</p>
+                    <p>The video was filmed in front of a green screen, which allows the use of a trick called '<a href="https://en.wikipedia.org/wiki/Chroma_key">chroma key compositing</a>' to subtract the green background and replace it with other images or videos.</p>
+                    <p>In this lesson, the compositing is being done directly in the web browser in real time using the chromakey tools in <a href="http://seriouslyjs.com/">Seriously.js</a>. It's JavaScript software that allows for really cool video experiments on the web.</p>
+                    <p>From there, the chromakeyed video is being composited (blended) together with code running behind it in an HTML5 &lt;canvas&gt; element. The interactive snowflakes and trees were created in the canvas using the wonderful <a href="p5js.org/">P5.JS</a> library.</p>
+                    <p>The P5 team also created a wonderful demo called <a href="http://hello.p5js.org/">hello.p5js.org</a>, which served as inspiration and guidance for creatively combining video and code together in the web browser.</p>
+                    <p>Timing the video with the code animations required yet another JavaScript tool called <a href="http://popcornjs.org/">Popcorn.JS</a> This software allows timing cues in the video to trigger other stuff to happen in the web browser at the same time.</p>
                 </div>
             </div>
         </div>
@@ -323,6 +327,7 @@
 
     <script src="script.js"></script>
     <script src="script-long.js"></script>
+    <script src="script-exercise.js"></script>
     <script src="main.js"></script>
 
     <script src="neuralexercise.js"></script>
@@ -361,10 +366,21 @@
         });
 
         $('#long').click(function() {
+            var btn = $(this);
+            btn.button('loading');
             script = longScript;
             main.init();
             main.playVideo();
         });
+
+        $('#exercise').click(function() {
+            var btn = $(this);
+            btn.button('loading');
+            script = exerciseScript;
+            main.init();
+            main.playVideo();
+        });
+
     </script>
 
     <script>

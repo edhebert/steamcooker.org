@@ -57,6 +57,7 @@ canvas {
 
 #neuralFormm {
     visibility: hidden;
+    z-index: 999999;
 }
 
 /* Code and text snippets in sidebar */
@@ -296,14 +297,14 @@ canvas {
 
 #go {
   position: absolute;
-  z-index: 10000;
+  z-index: 999999;
   bottom: 1%;
   height: 100%;
 }
 
 #dontgo {
   position: absolute;
-  z-index: 10000;
+  z-index: 999999;
   bottom: 1%;
   height: 100%;
 }
