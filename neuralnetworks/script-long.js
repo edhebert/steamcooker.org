@@ -35,7 +35,9 @@ var longScript = {
     pop.code({
       start: 0 ,
       onStart: function( options ) {
-        $('#treeForm').fadeOut();
+        $('#neuralForm').hide();
+        $('#go').hide();
+        $('#dontgo').hide();
         $('#spark').hide();
         $('#clickme').hide();
         $('#math').hide();
@@ -90,7 +92,7 @@ var longScript = {
 
     // sweet or sour
     pop.code({
-      start: 29.3 ,
+      start: 29.1 ,
       onStart: function( options ) {
         $('#math').hide();
         $('#clickme').hide();
@@ -144,7 +146,7 @@ var longScript = {
 
     // perceptron frame 2
     pop.code({
-      start: 58.2 ,
+      start: 57.9 ,
       onStart: function( options ) {
         $('#perceptron1').hide();
         $('#perceptron2').show();
@@ -153,7 +155,7 @@ var longScript = {
 
     // perceptron frame 3
     pop.code({
-      start: 58.7 ,
+      start: 58.1 ,
       onStart: function( options ) {
         $('#perceptron2').hide();
         $('#perceptron3').show();
@@ -162,7 +164,7 @@ var longScript = {
 
     // perceptron frame 4
     pop.code({
-      start: 59.2 ,
+      start: 58.3 ,
       onStart: function( options ) {
         $('#perceptron3').hide();
         $('#perceptron4').show();
@@ -171,7 +173,7 @@ var longScript = {
 
     // perceptron frame 5
     pop.code({
-      start: 60.5 ,
+      start: 59.0 ,
       onStart: function( options ) {
         $('#perceptron4').hide();
         $('#perceptron5').show();
@@ -189,16 +191,16 @@ var longScript = {
 
     // hover prompt
     pop.code({
-      start: 62 ,
+      start: 62.5 ,
       onStart: function( options ) {
         $('#spark').hide();
         $('#hoveroverme').show();
       }
     });
 
-    // hover for perceptron 58.5
+    // hover for perceptron 
     pop.code({
-      start: 62 ,
+      start: 62.5 ,
       onStart: function( options ) 
       {
         $("#hoveroverme").mouseenter(function () {
