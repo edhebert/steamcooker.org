@@ -1,7 +1,7 @@
-/* main.js is the key initialization function - this code was written to control the hello.p5.js demonstration
+/* main.js is the key initialization function - this code was originally written by the P5JS team to control the hello.p5.js demonstration
    hello.p5js.org 
 
-  Adapted for use in STEAM Cooker Fractals lesson by Ed Hebert
+  Code adapted for use in STEAM Cooker Fractals lesson by Ed Hebert
  */
 
 var main = {
