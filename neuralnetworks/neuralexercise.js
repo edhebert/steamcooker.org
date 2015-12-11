@@ -72,7 +72,7 @@ $("#foptions").change(function () {
 $("#woptions").change(function () {
     var z = document.getElementById("woptions");
     var selectedW = z.options[z.selectedIndex].value;
-    if (selectedF == 0) {
+    if (selectedW == 0) {
         document.getElementById("weatherimg").src = "../img/weathericonbw.png";
     }
     else
