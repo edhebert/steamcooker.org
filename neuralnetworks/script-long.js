@@ -55,6 +55,9 @@ var longScript = {
         $('#weight1').hide();
         $('#weight2').hide();
         $('#weight3').hide();
+        $('#values1').hide();
+        $('#values2').hide();
+        $('#values3').hide();
         $('#answers').hide();
         $('#decision').hide();
         $('#decision2').hide();
@@ -269,10 +272,18 @@ var longScript = {
       }
     });
 
+
+    // show weights definition
+    pop.code({
+      start: 94.0 ,
+      onStart: function( options ) {
+        $('#weightsdef').show();
+      }
+    });
     
     // weights frame 1
     pop.code({
-      start: 98.1 ,
+      start: 97.9 ,
       onStart: function( options ) {
         $('#question3').hide();
         $('#weight1').show();
@@ -306,22 +317,107 @@ var longScript = {
       }
     });
 
+    // hide current definitions
+    pop.code({
+      start: 132.3 ,
+      onStart: function( options ) {
+        $('#neuralnets').hide();
+        $('#neurondef').hide();
+        $('#perceptrondef').hide();
+        $('#weightsdef').hide();
+      }
+    });
+
+    // values frame 1
+    pop.code({
+      start: 149.6 ,
+      onStart: function( options ) {
+        $('#answers').hide();
+        $('#values1').show();
+      }
+    });
+
+    // weighted values frame 1
+    pop.code({
+      start: 149.6 ,
+      onStart: function( options ) {
+        $('#wvalues1').show();
+      }
+    });
+
+    // values frame 2
+    pop.code({
+      start: 160.1 ,
+      onStart: function( options ) {
+        $('#values1').hide();
+        $('#values2').show();
+      }
+    });
+
+    // weighted values frame 2
+    pop.code({
+      start: 163.1 ,
+      onStart: function( options ) {
+        $('#wvalues1').hide();
+        $('#wvalues2').show();
+      }
+    });
+
+    // values frame 3
+    pop.code({
+      start: 168.1 ,
+      onStart: function( options ) {
+        $('#values2').hide();
+        $('#values3').show();
+      }
+    });
+
+    // weighted values frame 3
+    pop.code({
+      start: 170.3 ,
+      onStart: function( options ) {
+        $('#wvalues2').hide();
+        $('#wvalues3').show();
+      }
+    });
+
+    // show threshold definition
+    pop.code({
+      start: 176.3 ,
+      onStart: function( options ) {
+        $('#threshold1').show();
+      }
+    });
+
+    // show threshold definition 2
+    pop.code({
+      start: 193.1 ,
+      onStart: function( options ) {
+        $('#threshold1').hide();
+        $('#threshold2').show();
+      }
+    });
 
     // decision 
     pop.code({
-      start: 204.5 ,
+      start: 203.5 ,
       onStart: function( options ) {
-        $('#answers').hide();
+        $('#values3').hide();
         $('#decision2').show();
       }
     });
 
-
     // fade out video
     pop.code({
-      start: 493.952243 ,
+      start: 249.0 ,
       onStart: function( options ) {
-        $('#videoCanvas').fadeOut();
+        $('#videoCanvas').hide();
+        $('#decision2').hide();
+        $('#wvalues3').hide();
+        $('#threshold2').hide();
+        $('#neuralForm').fadeIn();
+        $('#go').fadeIn();
+        $('#dontgo').fadeIn();
       }
     });
 

@@ -31,6 +31,9 @@ var exerciseScript = {
         $('#weight1').hide();
         $('#weight2').hide();
         $('#weight3').hide();
+        $('#values1').hide();
+        $('#values2').hide();
+        $('#values3').hide();
         $('#answers').hide();
         $('#decision').hide();
         $('#decision2').hide();

@@ -65,6 +65,11 @@ canvas {
 #neurondef,
 #perceptrondef, 
 #weightsdef,
+#wvalues1,
+#wvalues2,
+#wvalues3,
+#threshold1,
+#threshold2,
 #line1,
 #line2,
 #line3,
@@ -271,6 +276,31 @@ canvas {
   height: 85%;
   z-index: 1000;
 }
+
+#values1 {
+  position: absolute;
+  left: 62%;
+  bottom: 3%;
+  height: 85%;
+  z-index: 1000;
+}
+
+#values2 {
+  position: absolute;
+  left: 62%;
+  bottom: 3%;
+  height: 85%;
+  z-index: 1000;
+}
+
+#values3 {
+  position: absolute;
+  left: 62%;
+  bottom: 3%;
+  height: 85%;
+  z-index: 1000;
+}
+
 
 #answers {
   position: absolute;
