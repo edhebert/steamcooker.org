@@ -312,7 +312,7 @@ var shortScript = {
       }
     });
 
-        // fade out video
+    // fade out video
     pop.code({
       start: 148 ,
       onStart: function( options ) {
@@ -328,9 +328,7 @@ var shortScript = {
 
 
     // Set external
-
     script.popcorn = pop;
 
   }
-
 }

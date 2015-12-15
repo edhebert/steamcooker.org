@@ -1,3 +1,4 @@
+/* Main Elements */
 @media (min-width: 768px) {
     #module .container {
         padding-top: 40px;
@@ -25,7 +26,6 @@ canvas {
 }
 
 /* UI */
-
 #pause {
   position:absolute;
   display: none;
@@ -83,28 +83,7 @@ canvas {
   display: none;
 }
 
-
-
-
-/**
- * Sketch
- */
-
-#sketchCanvas, #sketchOverlay {
-    position: absolute;
-    width: 100%;
-    z-index:100;
-}
-
-#sketchCanvas.foreground, #sketchOverlay {
-    z-index: 600;
-}
-
-
-/**
- * Video
- */
-
+/* Video */
  #welcome {
   height: 550px;
  }
@@ -118,7 +97,6 @@ canvas {
 }
 
 /* begin button */
-
 #begin {
     margin: 100px;
 }
@@ -345,7 +323,6 @@ input[type="radio"] {
 }
 
 /* Code to "blink" tet when it's highlighted */
-
 .blinkme {
   animation: blinker 1s linear infinite;
 }

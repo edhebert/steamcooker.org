@@ -1,7 +1,7 @@
 /* main.js is the key initialization function - this code was written to control the hello.p5.js demonstration
    hello.p5js.org 
 
-  Adapted for use in STEAM Cooker Fractals lesson by Ed Hebert
+  Adapted for use in STEAMCooker lessons by Ed Hebert
  */
 
 var main = {
@@ -10,17 +10,14 @@ var main = {
   debug: true, 
 
   // Initalize Demo
-
   init: function() {
 
     main.resize();
 
     // Popcorn Setup
-
     script.init();  
 
     // Events
-
     if (main.debug) {
       $(document).click( function(e) {
         console.log( script.popcorn.currentTime());
@@ -35,14 +32,12 @@ var main = {
     });
 
     // Keyboad events
-
     if (main.debug) { 
       $('body').keypress(function(e){
         
         var keypress = String.fromCharCode(e.which);
 
         // Pause
-
         if(keypress == "p"){
           if (script.popcorn.paused())
             script.popcorn.play();
@@ -68,7 +63,6 @@ var main = {
     } 
 
     // Buttons
-
     $("#pause").click( function () {
       if (script.popcorn.paused()) {
         console.log("Play");
@@ -84,7 +78,6 @@ var main = {
     $("#begin").button('loading');
 
     // Pause on click
-
     $("a")
         .attr('target', "_blank")
         .click(function () {
@@ -92,14 +85,13 @@ var main = {
         });
 
     // Show welcome
-
     $("#welcome").fadeIn();
 
   },
 
   prepareVideo: function() {
+      
       // Setup Seriously
-
       var seriously,
       chroma, target;
 
@@ -137,12 +129,10 @@ var main = {
       seriously.go();
 
       // Set button state
-
       $("#begin").button('reset');
   },
 
   // Start Video
-
   playVideo: function() {
 
     //console.log("Starting video.");

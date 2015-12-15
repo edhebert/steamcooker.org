@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Mithila Fox">
 
     <title>Neural Networks | STEAM Cooker</title>
 
     <!-- all LESS/CSS combined and minified with gulp.js -->
     <link href="../dist/bootstrap.css" rel="stylesheet">
     
-    <!-- CSS specific to the Fractal Lesson -->
+    <!-- CSS specific to the Neural Networks Lesson -->
     <link href="../css/bootstrap-switch.min.css" rel="stylesheet"> 
     <link href="neural.css" rel="stylesheet">
     
@@ -83,45 +82,44 @@
             </div>
             <div class="row" id="presentation">
                 <div class="col-sm-8 col-sm-push-4 text-center">
-                        <div id="main">
-                            <div id="spark"><img id="spark" src="../img/spark.png" /></div>
-                            <div id="clickme"><img id="clickme" src="../img/clickme.png" /></div>
-                            <div id="math"><img id="math" src="../img/math2.png" /></div>
-                            <div id="sweet"><img id="sweet" src="../img/sweet.png" /></div>
-                            <div id="perceptron1"><img id="perceptron1" src="../img/perceptron1.png" /></div>
-                            <div id="perceptron2"><img id="perceptron2" src="../img/perceptron2.png" /></div>
-                            <div id="perceptron3"><img id="perceptron3" src="../img/perceptron3.png" /></div>
-                            <div id="perceptron4"><img id="perceptron4" src="../img/perceptron4.png" /></div>
-                            <div id="perceptron5"><img id="perceptron5" src="../img/perceptron5.png" /></div>
-                            <div id="hoveroverme"><img id="hoveroverme" src="../img/hoveroverme.png" /></div>
-                            <div id="hovered"><img id="hovered" src="../img/hover.png" /></div>
-                            <div id="question1"><img id="question1" src="../img/questions1.png" /></div>
-                            <div id="question2"><img id="question2" src="../img/questions2.png" /></div>
-                            <div id="question3"><img id="question3" src="../img/questions3.png" /></div>
-                            <div id="weight1"><img id="weight1" src="../img/weights1.png" /></div>
-                            <div id="weight2"><img id="weight2" src="../img/weights2.png" /></div>
-                            <div id="weight3"><img id="weight3" src="../img/weights3.png" /></div>
-                            <div id="answers"><img id="answers" src="../img/homework.png" /></div>
-                            <div id="values1"><img id="values1" src="../img/values1.png" /></div>
-                            <div id="values2"><img id="values2" src="../img/values2.png" /></div>
-                            <div id="values3"><img id="values3" src="../img/values3.png" /></div>
-                            <div id="decision"><img id="decision" src="../img/decision.png" /></div>
-                            <div id="decision2"><img id="decision2" src="../img/no.png" /></div>
-                            <div id="go"><img id="go" src="../img/go.png" /></div>
-                            <div id="dontgo"><img id="dontgo" src="../img/dontgo.png" /></div>
+                    <!-- Video elements -->
+                    <div id="main">
+                        <div id="spark"><img id="spark" src="../img/spark.png" /></div>
+                        <div id="clickme"><img id="clickme" src="../img/clickme.png" /></div>
+                        <div id="math"><img id="math" src="../img/math2.png" /></div>
+                        <div id="sweet"><img id="sweet" src="../img/sweet.png" /></div>
+                        <div id="perceptron1"><img id="perceptron1" src="../img/perceptron1.png" /></div>
+                        <div id="perceptron2"><img id="perceptron2" src="../img/perceptron2.png" /></div>
+                        <div id="perceptron3"><img id="perceptron3" src="../img/perceptron3.png" /></div>
+                        <div id="perceptron4"><img id="perceptron4" src="../img/perceptron4.png" /></div>
+                        <div id="perceptron5"><img id="perceptron5" src="../img/perceptron5.png" /></div>
+                        <div id="hoveroverme"><img id="hoveroverme" src="../img/hoveroverme.png" /></div>
+                        <div id="hovered"><img id="hovered" src="../img/hover.png" /></div>
+                        <div id="question1"><img id="question1" src="../img/questions1.png" /></div>
+                        <div id="question2"><img id="question2" src="../img/questions2.png" /></div>
+                        <div id="question3"><img id="question3" src="../img/questions3.png" /></div>
+                        <div id="weight1"><img id="weight1" src="../img/weights1.png" /></div>
+                        <div id="weight2"><img id="weight2" src="../img/weights2.png" /></div>
+                        <div id="weight3"><img id="weight3" src="../img/weights3.png" /></div>
+                        <div id="answers"><img id="answers" src="../img/homework.png" /></div>
+                        <div id="values1"><img id="values1" src="../img/values1.png" /></div>
+                        <div id="values2"><img id="values2" src="../img/values2.png" /></div>
+                        <div id="values3"><img id="values3" src="../img/values3.png" /></div>
+                        <div id="decision"><img id="decision" src="../img/decision.png" /></div>
+                        <div id="decision2"><img id="decision2" src="../img/no.png" /></div>
+                        <div id="go"><img id="go" src="../img/go.png" /></div>
+                        <div id="dontgo"><img id="dontgo" src="../img/dontgo.png" /></div>
 
-                            <div id="pause">
-                                <i id="pauseButton" class="fa fa-pause"></i>
-                            </div>
+                        <div id="pause">
+                            <i id="pauseButton" class="fa fa-pause"></i>
+                        </div>
 
-                            <div id="videoClip"></div>
-                            <div id="sketchCanvas"></div>
-                            <div id="sketchOverlay"></div>
-                            <canvas id="videoCanvas" width="960" height="720"></canvas>
-                        </div>                  
-
+                        <div id="videoClip"></div>
+                        <canvas id="videoCanvas" width="960" height="720"></canvas>
+                    </div>                  
                 </div>
 
+                <!-- Definitions -->
                 <div class="col-sm-4 col-sm-pull-8 sidebar">
                     <div class="panel panel-warning" id="neuralnets">
                         <div class="panel-heading">
@@ -140,8 +138,6 @@
                             <div>Neurons are special cells that work together to help our brains work.</div>
                         </div>                      
                     </div>
-
-
                     <div class="panel panel-warning" id="perceptrondef">
                         <div class="panel-heading">
                             <h3 class="panel-title">Perceptron</h3>
@@ -189,7 +185,6 @@
                             <div>Weather Input: 1 x 1 = 1</div>
                         </div>                      
                     </div>
-
                     <div class="panel panel-warning" id="threshold1">
                         <div class="panel-heading">
                             <h3 class="panel-title">Threshold Value</h3>
@@ -209,6 +204,7 @@
                         </div>                      
                     </div>
 
+                    <!-- Neural Networks Activity Elements -->
                     <div id="neuralForm">
                         <form>
                             <div class="form-group">
@@ -227,11 +223,6 @@
                                   <option value="4">4</option>
                                   <option value="5">5</option>
                                 </select>
-
-                                <!-- <input type="radio" id="hwyes" name="homework" value="hwyes">&nbsp;Yes
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="radio" id="hwno" name="homework" value="hwno" checked>&nbsp;No<br>
-                                <img src="../img/homeworkicon.png" class="homeworkimg" alt="Homework" style="width:35%"> -->
                             </div>
                             <div class="form-group">
                                 <label for="friends">Are your friends going to be there?</label>
@@ -387,37 +378,33 @@
     <script src="../js/vendor/seriously.js"></script>
     <script src="../js/vendor/effects/seriously.chroma.js"></script>
 
+    <!-- Lesson scripts -->
     <script src="script.js"></script>
     <script src="script-long.js"></script>
     <script src="script-exercise.js"></script>
     <script src="main.js"></script>
-
     <script src="neuralexercise.js"></script>
 
-    <!-- lesson scripts -->
-    <!--<script type="text/javascript" src="neural.js"></script>-->
 
     <script>
-
+        // set up
         $(document).ready( function () {
-
-        if (Seriously.incompatible()) {
-          $("#errorWebGL").show();
-          $("#errorFeature").hide();
-          $("#error").fadeIn();
-          $("#main").hide();
-        } else if (!Modernizr.webaudio || !Modernizr.csstransforms) {
-          $("#errorWebGL").hide();
-          $("#errorFeature").show();
-          $("#error").fadeIn();
-          $("#main").hide();
-        } else {
-          main.init();
-        }
-
+            if (Seriously.incompatible()) {
+              $("#errorWebGL").show();
+              $("#errorFeature").hide();
+              $("#error").fadeIn();
+              $("#main").hide();
+            } else if (!Modernizr.webaudio || !Modernizr.csstransforms) {
+              $("#errorWebGL").hide();
+              $("#errorFeature").show();
+              $("#error").fadeIn();
+              $("#main").hide();
+            } else {
+              main.init();
+            }
         });
 
-         // load the proper script or sketch based on user selection
+         // load the proper script based on user selection
         $('#short').click(function() {
             var btn = $(this);
             btn.button('loading');
@@ -456,5 +443,4 @@
 
     </script>
 </body>
-
 </html>

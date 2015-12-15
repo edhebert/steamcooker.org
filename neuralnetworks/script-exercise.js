@@ -47,7 +47,6 @@ var exerciseScript = {
 
 
     // Set external
-
     script.popcorn = pop;
 
   }

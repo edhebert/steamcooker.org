@@ -1,3 +1,4 @@
+// Neural networks math
 function neuralMath () {
     var x = document.getElementById("hwoptions");
     var selectedHW = x.options[x.selectedIndex].value;
@@ -37,10 +38,13 @@ function neuralMath () {
     }
 }
 
+// Run neural networks math immediately
 $(document).ready( function () {
     neuralMath();
 });
 
+
+// Toggle colour of homework icon
 $("#hwoptions").change(function () {
     var x = document.getElementById("hwoptions");
     var selectedHW = x.options[x.selectedIndex].value;
@@ -55,6 +59,7 @@ $("#hwoptions").change(function () {
     neuralMath();
 });
 
+// Toggle colour of friends icon
 $("#foptions").change(function () {
     var y = document.getElementById("foptions");
     var selectedF = y.options[y.selectedIndex].value;
@@ -69,6 +74,7 @@ $("#foptions").change(function () {
     neuralMath();
 });
 
+// Toggle colour of weather icon
 $("#woptions").change(function () {
     var z = document.getElementById("woptions");
     var selectedW = z.options[z.selectedIndex].value;
@@ -83,6 +89,7 @@ $("#woptions").change(function () {
     neuralMath();
 });
 
+// On any change in form input, run neural networks math
 $("#hwweights").change(function () {
     neuralMath();
 });

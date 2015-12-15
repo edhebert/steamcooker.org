@@ -21,11 +21,6 @@ var longScript = {
         $("#pauseButton").addClass("fa-play"); 
     });   
 
-    // pop.on("timeupdate", function(e) {
-    //   var position = pop.currentTime() / pop.duration();
-    //   var width = position * $("#main").width();
-    //   // $("#progress").css('width', width);
-    // });
 
     /**
     * Script
@@ -423,9 +418,7 @@ var longScript = {
 
 
     // Set external
-
     script.popcorn = pop;
 
   }
-
 }
